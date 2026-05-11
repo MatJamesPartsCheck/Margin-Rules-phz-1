@@ -206,6 +206,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .pmod-rs{font-size:11px;color:#9ca3af;margin-top:2px;font-weight:400}
 .pmod-check{width:15px;height:15px;accent-color:#22c55e;cursor:pointer;flex-shrink:0;margin-top:1px}
 .pmod-frozen{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:5px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;margin-top:12px}
+/* ── SETTINGS SIDEBAR ── */
+.settings-nav-item{padding:10px 20px;font-size:13px;font-weight:500;color:#374151;cursor:pointer;border-left:3px solid transparent;transition:all .12s}
+.settings-nav-item:hover{background:#f9fafb;color:#111}
+.settings-nav-item.active{background:#f0fdf4;color:#15803d;font-weight:700;border-left-color:#22c55e}
+.settings-panel{min-height:calc(100vh - 113px)}
+.settings-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:300px;color:#9ca3af}
 /* ── LIST VIEW ── */
 .lv-part-hd{background:#e8e8e8;padding:9px 14px;display:flex;align-items:center;gap:24px;border-bottom:1px solid #ccc;border-top:2px solid #bbb;flex-wrap:wrap}
 .lv-part-name{font-weight:700;font-size:13px;color:#111;min-width:160px}
@@ -274,6 +280,9 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
     <div class="nav-link" id="nl-rules">
       <div class="nav-icon-circle gray"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></div>SETTINGS
     </div>
+    <div class="nav-link">
+      <div class="nav-icon-circle gray"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>REPORTS
+    </div>
   </nav>
   <div class="nav-right">
     <div class="sbox-wrap">
@@ -282,7 +291,6 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
     </div>
     <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:#555">
       <div class="ubadge">MJ</div>
-      <span style="font-weight:700">MY PARTSCHECK</span>
       <span>|</span>
       <a href="#" style="color:#555;text-decoration:none">LOGOUT</a>
     </div>
@@ -293,9 +301,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
   <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>INFO</div>
   <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px">&#128196;</div>DOCUMENTS</div>
 </div>
-<div class="nav-sub" id="nav-sub-rules" style="display:none">
-  <div class="nav-sub-item active" id="nsub-dashboard"><div class="nav-sub-badge">&#9636;</div>MARGIN RULES</div>
-</div>
+
 
 <!-- ════ CHECK PRICE SCREEN ════ -->
 <div id="price-screen">
@@ -476,7 +482,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
   </div>
 </div>
 
-<!-- ════ RULES SCREEN (React) ════ -->
+<!-- ════ SETTINGS SCREEN (React) ════ -->
 <div id="rules-screen" style="display:none"></div>
 
 <!-- ════ EDIT MODAL ════ -->
@@ -894,7 +900,6 @@ function switchTab(name){
   document.getElementById('price-screen').style.display=isRules?'none':'block';
   document.getElementById('rules-screen').style.display=isRules?'block':'none';
   document.getElementById('nav-sub-price').style.display=isRules?'none':'flex';
-  document.getElementById('nav-sub-rules').style.display=isRules?'flex':'none';
   document.querySelectorAll('.nav-link').forEach(function(el){el.classList.remove('active');var ic=el.querySelector('.nav-icon-circle');if(ic)ic.classList.add('gray');});
   var al=isRules?document.getElementById('nl-rules'):document.getElementById('nl-check');
   if(al){al.classList.add('active');var ic=al.querySelector('.nav-icon-circle');if(ic)ic.classList.remove('gray');}
@@ -973,6 +978,7 @@ const Toggle = ({checked,onChange}) => (
 function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   const [qId,setQId]   = useState(null);
   const [qRow,setQRow] = useState(null);
+  const [tab,setTab]   = useState('margin');
   const togActive = id => setRules(r=>r.map(x=>x.id===id?{...x,active:!x.active}:x));
   const togPin    = id => setRules(r=>r.map(x=>x.id===id?{...x,pinned:!x.pinned}:x));
   const delRule   = id => setRules(r=>r.filter(x=>x.id!==id));
@@ -981,10 +987,44 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   const cancelQ   = () => { setQId(null); setQRow(null); };
   const sorted    = [...rules].sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
   const C6="1fr 1fr 1fr 1fr 1fr 150px", C5="175px 1fr 1fr 1fr 1fr 220px";
+
+  const TABS=[
+    {id:'general',  label:'General Settings'},
+    {id:'account',  label:'Account Settings'},
+    {id:'margin',   label:'Margin Settings'},
+    {id:'data',     label:'Data Settings'},
+  ];
+  const PLACEHOLDERS={
+    general: {icon:'⚙️', label:'General Settings'},
+    account: {icon:'👤', label:'Account Settings', sub:'Manage your client info, email preferences and password'},
+    data:    {icon:'🗄️', label:'Data Settings'},
+  };
+
   return (
     <div style={{background:"#f4f5f7",minHeight:"calc(100vh - 113px)"}}>
-      {/* Sub-header */}
-      <div style={{padding:"24px",display:"flex",flexDirection:"column",gap:"24px"}}>
+      {/* Dark header with tabs */}
+      <div style={{background:"#1f2937",display:"flex",alignItems:"stretch",justifyContent:"space-between"}}>
+        <div style={{display:"flex",alignItems:"stretch"}}>
+          {TABS.map(t=>(
+            <button key={t.id} onClick={()=>setTab(t.id)} style={{background:"none",border:"none",borderBottom:`3px solid ${tab===t.id?'#22c55e':'transparent'}`,color:tab===t.id?'#fff':'#9ca3af',padding:"14px 18px",fontSize:"12px",fontWeight:tab===t.id?'700':'500',cursor:"pointer",whiteSpace:"nowrap",letterSpacing:"0.3px"}}>
+              {t.label}
+            </button>
+          ))}
+        </div>
+        {tab==='margin'&&<button onClick={onCreate} style={{background:"#22c55e",color:"white",border:"none",margin:"10px 16px",borderRadius:"6px",padding:"7px 16px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>+ ADD RULE</button>}
+      </div>
+
+      {/* Placeholder panels */}
+      {tab!=='margin'&&(
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"300px",color:"#9ca3af"}}>
+          <div style={{fontSize:"32px",marginBottom:"10px"}}>{PLACEHOLDERS[tab]?.icon}</div>
+          <div style={{fontSize:"15px",fontWeight:"700",color:"#374151",marginBottom:"4px"}}>{PLACEHOLDERS[tab]?.label}</div>
+          <div style={{fontSize:"13px"}}>Coming soon</div>
+        </div>
+      )}
+
+      {/* Margin Settings content */}
+      {tab==='margin'&&<div style={{padding:"24px",display:"flex",flexDirection:"column",gap:"24px"}}>
         {/* System Templates */}
         <div>
           <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"6px"}}>
@@ -1087,7 +1127,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
             </div>
           )}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
