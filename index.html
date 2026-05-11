@@ -290,7 +290,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
 </div>
 <div class="nav-sub" id="nav-sub-price" style="display:flex">
   <div class="nav-sub-item active"><div class="nav-sub-badge">&#9636;</div>CHECK PRICE</div>
-  <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px">INFO</div>INFO</div>
+  <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>INFO</div>
   <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px">&#128196;</div>DOCUMENTS</div>
 </div>
 <div class="nav-sub" id="nav-sub-rules" style="display:none">
@@ -330,7 +330,6 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
           <div class="sitip-row"><span class="sitip-l">What this is</span><span class="sitip-v">Total buy price across selected parts</span></div>
           <div class="sitip-row"><span class="sitip-l">List Total</span><span class="sitip-v" id="tip-cost-list">—</span></div>
           <div class="sitip-row"><span class="sitip-l">vs List</span><span class="sitip-v" id="tip-cost-vs">—</span></div>
-          <div class="sitip-row"><span class="sitip-l">Incl. delivery</span><span class="sitip-v" id="tip-cost-dlv">—</span></div>
           <div class="sitip-note">Your total supplier cost. Lower vs list means better buying efficiency.</div>
         </div>
       </div>
@@ -627,6 +626,31 @@ function updateTotals(){
   document.getElementById('s-profit').textContent=fmt(pv);
   var scEl=document.getElementById('sel-count');if(scEl)scEl.textContent=sc;
   var totalList=0;for(var tl=0;tl<PARTS.length;tl++)totalList+=PARTS[tl].list;
+
+  // Tooltip values
+  var tcl=document.getElementById('tip-cost-list'),tcv=document.getElementById('tip-cost-vs'),tcd=document.getElementById('tip-cost-dlv');
+  var tsl=document.getElementById('tip-sell-list'),tsv=document.getElementById('tip-sell-vs'),tss=document.getElementById('tip-sell-sav');
+  var tpp=document.getElementById('tip-profit-pct');
+  if(sc===0){
+    if(tcl)tcl.textContent=fmt(totalList);
+    if(tsl)tsl.textContent=fmt(totalList);
+    if(tcv)tcv.textContent='No parts selected';
+    if(tcd)tcd.textContent='—';
+    if(tsv)tsv.textContent='No parts selected';
+    if(tss)tss.textContent='—';
+    if(tpp)tpp.textContent='—';
+  } else {
+    var savingVsDealer=dt-ct,savingPct=dt>0?(savingVsDealer/dt*100):0;
+    var costDiff=ct-dt,costDir=costDiff<=0?fmt(Math.abs(costDiff))+' below dealer list':fmt(costDiff)+' above dealer list';
+    if(tcl)tcl.textContent=fmt(dt);
+    if(tsl)tsl.textContent=fmt(st);
+    if(tcv)tcv.textContent=costDir;
+    if(tcd)tcd.textContent='None on selection';
+    if(tsv)tsv.textContent=fmt(st-dt)+' vs dealer list';
+    if(tss)tss.textContent=savingVsDealer>0?fmt(savingVsDealer)+' ('+savingPct.toFixed(1)+'% off dealer list)':'—';
+    if(tpp)tpp.textContent=mp.toFixed(1)+'% (Profit ÷ Sell)';
+  }
+
   // inline badges
   var bcost=document.getElementById('s-cost-badge'),bsell=document.getElementById('s-sell-badge'),bprofit=document.getElementById('s-profit-badge');
   if(sc===0){bcost.innerHTML='';bsell.innerHTML='';bprofit.innerHTML='';}
