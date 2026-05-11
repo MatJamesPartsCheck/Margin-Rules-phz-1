@@ -13,7 +13,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;background:#f0f2f5;color:#1a1a2e}
 
 /* ── NAV ── */
-.nav-top{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:2px solid #ddd;min-height:62px}
+.nav-top{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:2px solid #ddd;min-height:62px;position:sticky;top:0;z-index:300}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none;padding:8px 0}
 .nav-main{display:flex;align-items:stretch;flex:1;justify-content:center}
 .nav-link{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 18px;cursor:pointer;color:#999;font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;border-bottom:3px solid transparent;gap:4px;margin-bottom:-2px;user-select:none}
@@ -27,7 +27,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .sbox{padding:5px 10px;border:none;outline:none;font-size:12px;width:170px}
 .sbox-btn{background:#1B9B3B;border:none;padding:5px 12px;cursor:pointer;color:#fff;font-size:15px}
 .ubadge{background:#1B9B3B;color:white;font-weight:800;font-size:9px;width:20px;height:18px;border-radius:2px;display:flex;align-items:center;justify-content:center}
-.nav-sub{display:flex;background:#3a3a3a}
+.nav-sub{display:flex;background:#3a3a3a;position:sticky;top:62px;z-index:299}
 .nav-sub-item{display:flex;align-items:center;gap:10px;padding:10px 36px;font-size:11.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;cursor:pointer;color:#ccc;border-bottom:3px solid transparent;user-select:none}
 .nav-sub-item:hover{color:#fff}
 .nav-sub-item.active{color:#fff;border-bottom-color:#1B9B3B}
@@ -35,7 +35,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .nav-sub-item.active .nav-sub-badge{background:#1B9B3B;color:#fff}
 
 /* ── CHECK PRICE SCREEN ── */
-.qh{background:white;padding:10px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.qh{background:white;padding:10px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:104px;z-index:298}
 .qh h2{font-size:14px;font-weight:700;color:#111}
 .qh h2 span{color:#22c55e}
 .qh p{color:#6b7280;font-size:11px;margin-top:1px}
@@ -47,7 +47,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .btn:hover{background:#f9fafb}
 .btng{background:#22c55e;color:white;border-color:#16a34a}
 .btng:hover{background:#16a34a}
-.sb{background:white;border-bottom:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:stretch}
+.sb{background:white;border-bottom:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:stretch;position:sticky;top:156px;z-index:297}
 .si{flex:1;padding:0 16px;border-right:1px solid #e5e7eb;min-width:0}
 .si:first-child{padding-left:0}
 .si:last-child{border-right:none}
@@ -76,7 +76,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .mlbl{font-size:10px;color:#6b7280;font-weight:500;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 .mpct{font-size:28px;font-weight:800;line-height:1}
 .msub{font-size:10px;color:#6b7280;margin-top:3px}
-.tbar{background:#f8fafc;border-bottom:1px solid #e5e7eb;padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tbar{background:#f8fafc;border-bottom:1px solid #e5e7eb;padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:220px;z-index:296}
 .msel{padding:6px 10px;border:1px solid #d1d5db;border-radius:4px;font-size:12px;background:white;color:#374151;font-weight:600}
 .mnote{font-size:11px;color:#6b7280;flex:1}
 .no-rule{display:flex;align-items:center;gap:8px;background:#fffbeb;border:1px solid #fde68a;border-radius:4px;padding:6px 12px;font-size:11px;color:#92400e;flex:1}
@@ -381,7 +381,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
       <div id="rule-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:500;background:#fff;border:1px solid #d1d5db;border-radius:8px;box-shadow:0 12px 36px rgba(0,0,0,.15);width:680px;padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <span style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px">Select Active Rule</span>
-          <span style="font-size:11px;color:#6b7280">To edit rules, go to <a onclick="closeRuleDropdown();switchTab('rules')" style="color:#1B9B3B;font-weight:700;text-decoration:underline;cursor:pointer">Settings</a></span>
+          <span style="font-size:11px;color:#6b7280">To edit rules, go to <a onclick="closeRuleDropdown();switchTab('rules',true)" style="color:#1B9B3B;font-weight:700;text-decoration:underline;cursor:pointer">Settings</a></span>
         </div>
         <div id="rule-dropdown-body" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"></div>
       </div>
@@ -432,6 +432,10 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#9ca3af"><path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h18v2H3z"/></svg>
       </button>
       </div>
+      <button id="btn-list-settings" onclick="openListSettings()" title="List Settings" style="display:none;align-items:center;justify-content:center;padding:6px 10px;border:1px solid #d1d5db;border-radius:4px;background:#fff;cursor:pointer;gap:5px;font-size:11px;font-weight:600;color:#374151">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        List Settings
+      </button>
     </div>
   </div>
   <div id="grid-view-wrap" class="tw">
@@ -483,7 +487,40 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
 </div>
 
 <!-- ════ SETTINGS SCREEN (React) ════ -->
-<div id="rules-screen" style="display:none"></div>
+<div id="rules-screen" style="display:none">
+  <div id="settings-back-banner" style="display:none;background:#fffbeb;border-bottom:1px solid #fde68a;padding:7px 20px;display:none;align-items:center;gap:10px;font-size:12px;color:#92400e">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0"><polyline points="15 18 9 12 15 6"/></svg>
+    <span>You navigated here from <strong id="settings-back-quote">Quote 89734</strong>.</span>
+    <a onclick="goBackToQuote()" style="color:#d97706;font-weight:700;text-decoration:underline;cursor:pointer">← Return to quote</a>
+  </div>
+  <div id="settings-react-root"></div>
+</div>
+
+<!-- ════ LIST SETTINGS MODAL ════ -->
+<div class="mo" id="listSettingsModal">
+  <div class="md" style="width:420px">
+    <div class="mhd" style="background:#22c55e;padding:14px 20px">
+      <div class="mht" style="color:#fff;font-size:14px;font-weight:700">List Settings</div>
+      <button class="mhx" onclick="closeListSettings()" style="color:#fff;font-size:20px">&#10005;</button>
+    </div>
+    <div style="padding:0 20px 20px">
+      <table style="width:100%;border-collapse:collapse;margin-top:16px">
+        <thead>
+          <tr style="border-bottom:2px solid #e5e7eb">
+            <td style="font-size:12px;font-weight:600;color:#374151;padding-bottom:8px;width:50%">Column</td>
+            <td style="font-size:12px;font-weight:600;color:#374151;padding-bottom:8px;text-align:center">Show/Hide</td>
+            <td style="font-size:12px;font-weight:600;color:#374151;padding-bottom:8px;text-align:center">Sorting by</td>
+          </tr>
+        </thead>
+        <tbody id="list-settings-rows"></tbody>
+      </table>
+    </div>
+    <div class="emf">
+      <button class="embn" onclick="closeListSettings()">Cancel</button>
+      <button class="embn embp" onclick="applyListSettings()">Apply</button>
+    </div>
+  </div>
+</div>
 
 <!-- ════ EDIT MODAL ════ -->
 <div class="mo" id="editModal">
@@ -822,6 +859,42 @@ function hidePNCombo(){document.getElementById('pntype-dropdown').style.display=
 function filterPNCombo(v){renderPNCombo(v);}
 function pickPN(val){document.getElementById('modal-pntype').value=val;document.getElementById('pntype-dropdown').style.display='none';}
 
+var LIST_COLS=[
+  {id:'cost',    label:'Cost',    show:true,  sort:false},
+  {id:'sell',    label:'Sell',    show:true,  sort:false},
+  {id:'margin',  label:'Margin',  show:true,  sort:false},
+  {id:'profit',  label:'Profit',  show:true,  sort:true},
+  {id:'eta',     label:'ETD',     show:true,  sort:false},
+  {id:'comments',label:'Comments',show:true,  sort:false},
+];
+
+function openListSettings(){
+  var tbody=document.getElementById('list-settings-rows');
+  var h='';
+  LIST_COLS.forEach(function(col){
+    h+='<tr style="border-bottom:1px solid #f3f4f6">'
+      +'<td style="padding:12px 0;font-size:13px;color:#374151">'+col.label+'</td>'
+      +'<td style="text-align:center;padding:12px 0"><input type="checkbox" id="lsc-'+col.id+'" '+(col.show?'checked':'')+' style="width:16px;height:16px;accent-color:#22c55e;cursor:pointer"></td>'
+      +'<td style="text-align:center;padding:12px 0"><input type="radio" name="ls-sort" value="'+col.id+'" '+(col.sort?'checked':'')+' style="width:15px;height:15px;accent-color:#22c55e;cursor:pointer"></td>'
+      +'</tr>';
+  });
+  tbody.innerHTML=h;
+  document.getElementById('listSettingsModal').classList.add('open');
+}
+function closeListSettings(){
+  document.getElementById('listSettingsModal').classList.remove('open');
+}
+function applyListSettings(){
+  LIST_COLS.forEach(function(col){
+    var cb=document.getElementById('lsc-'+col.id);
+    if(cb) col.show=cb.checked;
+  });
+  var sortEl=document.querySelector('input[name="ls-sort"]:checked');
+  LIST_COLS.forEach(function(col){col.sort=(sortEl&&sortEl.value===col.id);});
+  closeListSettings();
+  if(document.getElementById('list-view').style.display==='block') renderList();
+}
+
 var SUP_COLORS={s2:'#337ab7',s1:'#9b59b6',s3:'#e91e8c',s4:'#5cb85c',s5:'#f0ad4e'};
 var SUP_NAMES={s2:'OEM Direct',s1:'Parts Network',s3:'ATS Parts',s4:'Eco Parts',s5:'Reco Centre'};
 
@@ -894,10 +967,19 @@ function setView(v){
   var list=document.getElementById('btn-list-view');
   if(grid){grid.style.background=v==='grid'?'#f0fdf4':'#fff';var gi=grid.querySelector('svg');if(gi)gi.setAttribute('fill',v==='grid'?'#16a34a':'#9ca3af');}
   if(list){list.style.background=v==='list'?'#f0fdf4':'#fff';var li=list.querySelector('svg');if(li)li.setAttribute('fill',v==='list'?'#16a34a':'#9ca3af');}
+  var lsBtn=document.getElementById('btn-list-settings');
+  if(lsBtn) lsBtn.style.display=v==='list'?'inline-flex':'none';
   if(v==='list') renderList();
 }
 
-function switchTab(name){
+var _fromQuote=false;
+
+function goBackToQuote(){
+  _fromQuote=false;
+  switchTab('price');
+}
+
+function switchTab(name,fromQuote){
   var isRules=(name==='rules');
   document.getElementById('price-screen').style.display=isRules?'none':'block';
   document.getElementById('rules-screen').style.display=isRules?'block':'none';
@@ -905,6 +987,19 @@ function switchTab(name){
   document.querySelectorAll('.nav-link').forEach(function(el){el.classList.remove('active');var ic=el.querySelector('.nav-icon-circle');if(ic)ic.classList.add('gray');});
   var al=isRules?document.getElementById('nl-rules'):document.getElementById('nl-check');
   if(al){al.classList.add('active');var ic=al.querySelector('.nav-icon-circle');if(ic)ic.classList.remove('gray');}
+  // Back banner
+  var banner=document.getElementById('settings-back-banner');
+  if(banner){
+    if(isRules&&fromQuote){
+      _fromQuote=true;
+      banner.style.display='flex';
+    } else if(isRules&&_fromQuote){
+      banner.style.display='flex';
+    } else {
+      banner.style.display='none';
+      if(!isRules) _fromQuote=false;
+    }
+  }
 }
 document.getElementById('nl-check').addEventListener('click',function(){switchTab('price');});
 document.getElementById('nl-rules').addEventListener('click',function(){switchTab('rules');});
@@ -991,10 +1086,10 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   const C6="1fr 1fr 1fr 1fr 1fr 150px", C5="175px 1fr 1fr 1fr 1fr 220px";
 
   const TABS=[
-    {id:'general',  label:'General Settings'},
-    {id:'account',  label:'Account Settings'},
-    {id:'margin',   label:'Margin Settings'},
-    {id:'data',     label:'Data Settings'},
+    {id:'general',  label:'General Settings',  icon:<svg viewBox="0 0 24 24" style={{width:"12px",height:"12px",fill:"currentColor"}}><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>},
+    {id:'account',  label:'Account Settings',   icon:<svg viewBox="0 0 24 24" style={{width:"12px",height:"12px",fill:"currentColor"}}><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>},
+    {id:'margin',   label:'Margin Settings',    icon:<svg viewBox="0 0 24 24" style={{width:"12px",height:"12px",fill:"currentColor"}}><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>},
+    {id:'data',     label:'Data Settings',      icon:<svg viewBox="0 0 24 24" style={{width:"12px",height:"12px",fill:"currentColor"}}><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-2 5h-2v-2h2v2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-2 5h-2V6h2v2z"/></svg>},
   ];
   const PLACEHOLDERS={
     general: {icon:'⚙️', label:'General Settings'},
@@ -1005,15 +1100,17 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   return (
     <div style={{background:"#f4f5f7",minHeight:"calc(100vh - 113px)"}}>
       {/* Dark header with tabs */}
-      <div style={{background:"#1f2937",display:"flex",alignItems:"stretch",justifyContent:"space-between"}}>
+      <div style={{background:"#3a3a3a",display:"flex",alignItems:"stretch",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"stretch"}}>
           {TABS.map(t=>(
-            <button key={t.id} onClick={()=>setTab(t.id)} style={{background:"none",border:"none",borderBottom:`3px solid ${tab===t.id?'#22c55e':'transparent'}`,color:tab===t.id?'#fff':'#9ca3af',padding:"14px 18px",fontSize:"12px",fontWeight:tab===t.id?'700':'500',cursor:"pointer",whiteSpace:"nowrap",letterSpacing:"0.3px"}}>
+            <button key={t.id} onClick={()=>setTab(t.id)} style={{background:"none",border:"none",borderBottom:`3px solid ${tab===t.id?'#1B9B3B':'transparent'}`,color:tab===t.id?'#fff':'#ccc',padding:"10px 24px",fontSize:"11.5px",fontWeight:"700",letterSpacing:"0.6px",textTransform:"uppercase",cursor:"pointer",whiteSpace:"nowrap",display:"inline-flex",alignItems:"center",gap:"10px"}}>
+              <div style={{width:"21px",height:"21px",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",background:tab===t.id?'#1B9B3B':'#555',color:tab===t.id?'#fff':'#ccc',flexShrink:0}}>
+                {t.icon}
+              </div>
               {t.label}
             </button>
           ))}
         </div>
-        {tab==='margin'&&<button onClick={onCreate} style={{background:"#22c55e",color:"white",border:"none",margin:"10px 16px",borderRadius:"6px",padding:"7px 16px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>+ ADD RULE</button>}
       </div>
 
       {/* Placeholder panels */}
@@ -1504,7 +1601,7 @@ function RulesApp() {
   );
 }
 
-const root=ReactDOM.createRoot(document.getElementById('rules-screen'));
+const root=ReactDOM.createRoot(document.getElementById('settings-react-root'));
 root.render(<RulesApp/>);
 </script>
 </body>
