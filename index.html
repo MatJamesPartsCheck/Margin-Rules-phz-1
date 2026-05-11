@@ -294,7 +294,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
   <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px">&#128196;</div>DOCUMENTS</div>
 </div>
 <div class="nav-sub" id="nav-sub-rules" style="display:none">
-  <div class="nav-sub-item active" id="nsub-dashboard"><div class="nav-sub-badge">&#9636;</div>INSURER RULES</div>
+  <div class="nav-sub-item active" id="nsub-dashboard"><div class="nav-sub-badge">&#9636;</div>MARGIN RULES</div>
 </div>
 
 <!-- ════ CHECK PRICE SCREEN ════ -->
@@ -1018,7 +1018,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
           <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",marginBottom:"10px"}}>
             <div>
               <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"3px"}}>
-                <span style={{fontSize:"14px",fontWeight:"800",color:"#111"}}>Your Rules</span>
+                <span style={{fontSize:"14px",fontWeight:"800",color:"#111"}}>Margin Rules</span>
                 {rules.length>0&&<span style={{fontSize:"11px",fontWeight:"700",background:"#f0fdf4",color:"#166534",border:"1px solid #86efac",borderRadius:"10px",padding:"2px 8px"}}>{rules.length} rule{rules.length>1?"s":""}</span>}
               </div>
               <p style={{fontSize:"12px",color:"#6b7280",margin:0}}>Rules you've created or copied from templates.</p>
@@ -1028,7 +1028,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
           {sorted.length===0?(
             <div style={{background:"#fff",border:"1px solid #e5e7eb",padding:"28px 20px",textAlign:"center"}}>
               <div style={{fontSize:"24px",marginBottom:"8px"}}>📋</div>
-              <div style={{fontSize:"14px",fontWeight:"700",color:"#374151",marginBottom:"4px"}}>No insurer rules yet</div>
+              <div style={{fontSize:"14px",fontWeight:"700",color:"#374151",marginBottom:"4px"}}>No margin rules yet</div>
               <div style={{fontSize:"12px",color:"#9ca3af",marginBottom:"16px"}}>Copy a system template above or add a rule from scratch.</div>
               <button onClick={onCreate} style={{background:"#1f2937",color:"white",border:"none",borderRadius:"6px",padding:"8px 20px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>Add your first rule</button>
             </div>
@@ -1042,11 +1042,14 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                 return (
                   <div key={rule.id} style={{display:"grid",gridTemplateColumns:C5,padding:"0 16px",borderBottom:idx<sorted.length-1?"1px solid #f3f4f6":"none",background:isQ?"#f9fffe":"#fff",alignItems:"center"}}>
                     <div style={{padding:"12px 8px"}}>
-                      <div style={{display:"flex",alignItems:"center",gap:"6px"}}>
-                        <span style={{fontWeight:"700",fontSize:"13px",color:"#111"}}>{rule.insurer}</span>
-                        {rule.pinned&&<svg width="11" height="11" viewBox="0 0 24 24" fill="#d97706" stroke="#d97706" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>}
-                        {!rule.active&&<span style={{fontSize:"9px",fontWeight:"700",background:"#f3f4f6",color:"#9ca3af",borderRadius:"4px",padding:"1px 5px"}}>INACTIVE</span>}
-                      </div>
+                      {isQ
+                        ? <input value={qRow.insurer||""} onChange={e=>setQRow({...qRow,insurer:e.target.value})} style={{border:"1px solid #22c55e",borderRadius:"4px",padding:"4px 6px",fontSize:"12px",width:"100%",outline:"none",fontWeight:"700"}}/>
+                        : <div style={{display:"flex",alignItems:"center",gap:"6px"}}>
+                            <span style={{fontWeight:"700",fontSize:"13px",color:"#111"}}>{rule.insurer}</span>
+                            {rule.pinned&&<svg width="11" height="11" viewBox="0 0 24 24" fill="#d97706" stroke="#d97706" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>}
+                            {!rule.active&&<span style={{fontSize:"9px",fontWeight:"700",background:"#f3f4f6",color:"#9ca3af",borderRadius:"4px",padding:"1px 5px"}}>INACTIVE</span>}
+                          </div>
+                      }
                     </div>
                     {["oem","aftm","reco","parallel"].map(f=>(
                       <div key={f} style={{padding:"12px 8px"}}>
