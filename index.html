@@ -641,7 +641,7 @@ function updateTotals(){
     if(tpp)tpp.textContent='—';
   } else {
     var savingVsDealer=dt-ct,savingPct=dt>0?(savingVsDealer/dt*100):0;
-    var costDiff=ct-dt,costDir=costDiff<=0?fmt(Math.abs(costDiff))+' below dealer list':fmt(costDiff)+' above dealer list';
+    var costDiff=ct-dt,costDir=costDiff<=0?fmt(Math.abs(costDiff))+' below list':fmt(costDiff)+' above list';
     if(tcl)tcl.textContent=fmt(dt);
     if(tsl)tsl.textContent=fmt(st);
     if(tcv)tcv.textContent=costDir;
@@ -656,7 +656,7 @@ function updateTotals(){
   if(sc===0){bcost.innerHTML='';bsell.innerHTML='';bprofit.innerHTML='';}
   else{
     var cvl=ct-dt,ccol=cvl<0?'#16a34a':'#ef4444',cdir=cvl<0?'&#9660;':'&#9650;';
-    bcost.innerHTML='<span style="display:inline-flex;align-items:center;gap:3px;background:#f1f5f9;border-radius:10px;padding:2px 8px;font-size:10px;font-weight:600;color:'+ccol+'">'+cdir+' '+fmt(Math.abs(cvl))+' vs dealer list</span>';
+    bcost.innerHTML='<span style="display:inline-flex;align-items:center;gap:3px;background:#f1f5f9;border-radius:10px;padding:2px 8px;font-size:10px;font-weight:600;color:'+ccol+'">'+cdir+' '+fmt(Math.abs(cvl))+' vs list</span>';
     bprofit.innerHTML='<span style="display:inline-flex;align-items:center;gap:3px;background:#f0fdf4;border-radius:10px;padding:2px 8px;font-size:10px;font-weight:600;color:#16a34a">'+mp.toFixed(1)+'% margin</span>';
   }
   updatePrintState(sc>0);
