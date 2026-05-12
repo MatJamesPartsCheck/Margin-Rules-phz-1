@@ -235,6 +235,9 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
 .lv-mod-btn{padding:4px 10px;border:1px solid #ccc;border-radius:3px;background:#fff;font-size:11px;font-weight:600;cursor:pointer;color:#444;display:inline-flex;align-items:center;gap:4px;margin-right:4px}
 .lv-mod-btn:hover{background:#f0f0f0}
 .lv-cmt{font-size:11px;color:#555;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+input[type=text]::-webkit-outer-spin-button,input[type=text]::-webkit-inner-spin-button{display:none}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{display:none}
+input[type=number]{-moz-appearance:textfield}
 </style>
 </head>
 <body>
@@ -605,8 +608,8 @@ var PARTS=[
     {sid:'s5',type:'Reco',label:'Recon',supplier:'Reco Centre',cost:198.00,sell:243.75,inScope:true,best:false,eta:'3-5 Days',pno:'5450241',  mno:'--',rule:'85% list', cmt:'Fully reconditioned, 12 month warranty.'}
   ]}
 ];
-var SEL={},COLS=['s2','s1','s3','s4','s5'];
-for(var z=0;z<PARTS.length;z++) SEL[PARTS[z].id]=null;
+var SEL={},QTY={},COLS=['s2','s1','s3','s4','s5'];
+for(var z=0;z<PARTS.length;z++){SEL[PARTS[z].id]=null;QTY[PARTS[z].id]='';}
 function fmt(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
 var TYPE_COLOR={OEM:'#337ab7',AftM:'#9b59b6',Used:'#5cb85c',Reco:'#f0ad4e',Parallel:'#5cb85c'};
 function render(){
@@ -615,8 +618,9 @@ function render(){
     var p=PARTS[i],ss=SEL[p.id],rowHasSel=(ss!==null);
     h+='<tr data-pid="'+p.id+'">';
     h+='<td class="new-part-cell"><div class="part-chk-row">'
-      +'<input type="checkbox" '+(rowHasSel?'checked':'')
-      +' onchange="toggleCheckbox(this,\''+p.id+'\')">'
+      +'<div style="display:flex;align-items:center;gap:4px;flex-shrink:0">'
+      +'<input type="text" inputmode="numeric" id="qty-'+p.id+'" value="'+QTY[p.id]+'" placeholder="" style="width:32px;border:1px solid #ccc;border-radius:3px;padding:3px 4px;font-size:11px;text-align:center;color:#333;font-family:inherit;-moz-appearance:textfield" onclick="event.stopPropagation()" onchange="QTY[\''+p.id+'\']=this.value">'
+      +'</div>'
       +'<div><div style="font-weight:700;color:#222;font-size:12px">'+p.name+'</div>'
       +'<div style="font-size:11px;color:#666;margin-top:2px">Dealer: '+p.num+'</div>'
       +'<div style="font-size:11px;color:#666">List: '+fmt(p.list)+' ea</div>'
@@ -670,9 +674,6 @@ function render(){
   h+='</tr>';
   document.getElementById('tbody').innerHTML=h;
 }
-function toggleCheckbox(cb,pid){
-  if(!cb.checked){SEL[pid]=null;updateTotals();render();}
-}
 function updateTotals(){
   var ct=0,st=0,matched=0,sc=0,dt=0,total=PARTS.length;
   for(var i=0;i<PARTS.length;i++){
@@ -725,6 +726,8 @@ function updateTotals(){
 }
 function toggle(pid,sid){
   SEL[pid]=(SEL[pid]===sid)?null:sid;
+  if(SEL[pid]&&!QTY[pid]) QTY[pid]='1';
+  if(!SEL[pid]) QTY[pid]='';
   updateTotals();render();
   if(document.getElementById('list-view')&&document.getElementById('list-view').style.display==='block') renderList();
 }
