@@ -633,7 +633,7 @@ function render(){
       var isSel=(ss===sid),tcol=TYPE_COLOR[opt.type]||'#337ab7';
       var en=p.name.replace(/'/g,"\\'"),ep=opt.pno.replace(/'/g,"\\'"),es=opt.supplier.replace(/'/g,"\\'");
       h+='<td class="new-price-cell'+(isSel?' npc-sel':'')+' ttw" onclick="toggle(\''+p.id+'\',\''+sid+'\')">';
-      if(opt.best){h+='<div class="cfw"><div class="cf cfg"></div><span class="cftick">&#10003;</span><div class="cftip">Best option</div></div>';}
+      if(opt.best){h+='<div class="cfw"><div class="cf cfg"></div><span class="cftick">&#10003;</span><div class="cftip">Part No. Match</div></div>';}
       h+='<div class="npc-type" style="color:'+tcol+'">'+opt.label
         +(opt.cmt?'<i class="fa-solid fa-comment-dots" style="font-size:9px;opacity:0.8;flex-shrink:0"></i>':'')
         +'</div>';
