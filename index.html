@@ -1110,7 +1110,9 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   const saveQ     = () => { setRules(r=>r.map(x=>x.id===qId?qRow:x)); setQId(null); setQRow(null); };
   const cancelQ   = () => { setQId(null); setQRow(null); };
   const sorted    = [...rules].sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
-  const C6="1fr 1fr 1fr 1fr 1fr 150px", C5="175px 1fr 1fr 1fr 1fr 220px";
+  const C6="175px 1fr 1fr 1fr 1fr 200px", C5="175px 1fr 1fr 1fr 1fr 220px";
+  const COL_HDR={padding:"10px 8px",fontSize:"11px",fontWeight:"700",color:"#4b5563",textTransform:"uppercase",letterSpacing:"0.6px"};
+  const CELL={padding:"12px 8px",fontSize:"13px",color:"#6b7280"};
 
   const TABS=[
     {id:'general',  label:'General Settings',  icon:<svg viewBox="0 0 24 24" style={{width:"12px",height:"12px",fill:"currentColor"}}><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>},
@@ -1160,11 +1162,11 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
           <p style={{fontSize:"12px",color:"#6b7280",marginBottom:"10px"}}>Read-only starting points. Copy any template to create your own editable version.</p>
           <div style={{border:"1px solid #d1d5db",overflow:"hidden"}}>
             <div style={{display:"grid",gridTemplateColumns:C6,background:"#e5e7eb",padding:"0 16px",borderBottom:"1px solid #d1d5db"}}>
-              {["Rule / Insurer","OEM","Aftm","Reco","Parallel",""].map(h=><div key={h} style={{padding:"9px 8px",fontSize:"10px",fontWeight:"700",color:"#4b5563",textTransform:"uppercase",letterSpacing:"0.6px"}}>{h}</div>)}
+              {["Rule / Insurer","OEM","Aftm","Reco","Parallel",""].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
             </div>
             {SYSRULES.filter(r=>r.isDefault).map((r,i)=>(
               <div key={r.id} style={{display:"grid",gridTemplateColumns:C6,padding:"0 16px",borderBottom:"none",alignItems:"center",background:"#f9fafb"}}>
-                <div style={{padding:"11px 8px"}}>
+                <div style={{padding:"12px 8px"}}>
                   <div style={{display:"flex",alignItems:"center",gap:"6px"}}>
                     <span style={{fontWeight:"700",fontSize:"13px",color:"#374151"}}>{r.insurer}</span>
                     <span style={{fontSize:"9px",fontWeight:"700",background:"#e5e7eb",color:"#6b7280",borderRadius:"3px",padding:"1px 5px"}}>SYSTEM</span>
@@ -1172,8 +1174,8 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                   </div>
                   <div style={{fontSize:"11px",color:"#9ca3af",marginTop:"2px"}}>{r.desc}</div>
                 </div>
-                {["oem","aftm","reco","parallel"].map(f=><div key={f} style={{padding:"11px 8px",fontSize:"12px",color:"#64748b",fontStyle:"italic"}}>{r[f]}</div>)}
-                <div style={{padding:"11px 8px"}}><button onClick={()=>onCopy(r)} style={{background:"#f9fafb",border:"1px solid #d1d5db",borderRadius:"5px",padding:"5px 12px",fontSize:"11px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>Copy &amp; customise</button></div>
+                {["oem","aftm","reco","parallel"].map(f=><div key={f} style={CELL}>{r[f]}</div>)}
+                <div style={{padding:"12px 8px"}}><button onClick={()=>onCopy(r)} style={{background:"#f9fafb",border:"1px solid #d1d5db",borderRadius:"5px",padding:"5px 12px",fontSize:"11px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>Copy &amp; customise</button></div>
               </div>
             ))}
           </div>
@@ -1200,8 +1202,8 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
             </div>
           ):(
             <div style={{background:"#fff",border:"1px solid #e5e7eb"}}>
-              <div style={{display:"grid",gridTemplateColumns:C5,background:"#f9fafb",borderBottom:"2px solid #e5e7eb",padding:"0 16px"}}>
-                {["Rule / Insurer","OEM","Aftm","Reco","Parallel","Actions"].map(h=><div key={h} style={{padding:"10px 8px",fontSize:"11px",fontWeight:"700",color:"#6b7280",textTransform:"uppercase",letterSpacing:"0.6px"}}>{h}</div>)}
+              <div style={{display:"grid",gridTemplateColumns:C5,background:"#e5e7eb",borderBottom:"1px solid #d1d5db",padding:"0 16px"}}>
+                {["Rule / Insurer","OEM","Aftm","Reco","Parallel","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
               </div>
               {sorted.map((rule,idx)=>{
                 const isQ=qId===rule.id;
@@ -1220,7 +1222,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                     {["oem","aftm","reco","parallel"].map(f=>(
                       <div key={f} style={{padding:"12px 8px"}}>
                         {isQ?<input value={qRow[f]||""} onChange={e=>setQRow({...qRow,[f]:e.target.value})} style={{border:"1px solid #22c55e",borderRadius:"4px",padding:"4px 6px",fontSize:"12px",width:"100%",outline:"none"}}/>
-                            :<span style={{fontSize:"13px",color:"#6b7280"}}>{rule[f]}</span>}
+                            :<span style={CELL}>{rule[f]}</span>}
                       </div>
                     ))}
                     <div style={{padding:"12px 8px",display:"flex",gap:"4px",flexWrap:"wrap",alignItems:"center"}}>
