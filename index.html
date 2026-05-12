@@ -451,7 +451,7 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
         </tr>
         <tr>
           <th class="sel-hd">
-            <div><span class="sel-hd-count" id="sel-count">0</span><span class="sel-hd-count">/5</span><span style="font-size:13px;font-weight:700;color:#5cb85c"> Selected</span></div>
+            <div><span class="sel-hd-count" id="sel-count">0</span><span class="sel-hd-count">/7</span><span style="font-size:13px;font-weight:700;color:#5cb85c"> Selected</span></div>
             <div class="sel-hd-meta">Part Number &amp; Description</div>
           </th>
           <th class="sup-th-new">
@@ -591,6 +591,18 @@ var PARTS=[
   {id:'p5',name:'R/BADGE "N-LINE"',num:'#86312-G4700',list:70.14,autoSel:'s4',opts:[
     {sid:'s2',type:'OEM',label:'OEM',supplier:'OEM Direct',  cost:56.11,sell:70.14,inScope:true, best:false,eta:'2-3 Days',pno:'86312-G4700',mno:'--',rule:'100% list',cmt:''},
     {sid:'s4',type:'Used',label:'Used',supplier:'Eco Parts', cost:24.43,sell:30.10,inScope:true, best:true, eta:'Same Day', pno:'86312-G4700',mno:'--',rule:'85% list', cmt:''}
+  ]},
+  {id:'p6',name:'R/H SILL PANEL MOULD',num:'#9124106',list:965.50,autoSel:'s2',opts:[
+    {sid:'s2',type:'OEM',label:'OEM',supplier:'OEM Direct',  cost:772.40,sell:965.50,inScope:true, best:false,eta:'3-5 Days',pno:'9124106',   mno:'--',rule:'100% list',cmt:''},
+    {sid:'s1',type:'AftM',label:'Cert AftM',supplier:'Parts Network',cost:520.00,sell:640.75,inScope:true, best:true, eta:'1-2 Days',pno:'PN-SILL-9124',mno:'9124106',rule:'85% list', cmt:'Certified aftermarket, confirmed fitment.'},
+    {sid:'s3',type:'OEM',label:'OEM',supplier:'ATS Parts',   cost:498.50,sell:612.00,inScope:true, best:false,eta:'2-3 Days',pno:'9124106',   mno:'--',rule:'85% list', cmt:''},
+    {sid:'s4',type:'Used',label:'Used',supplier:'Eco Parts', cost:310.00,sell:381.75,inScope:true, best:false,eta:'Same Day', pno:'9124106',   mno:'--',rule:'85% list', cmt:'Grade A, low km vehicle.'}
+  ]},
+  {id:'p7',name:'R/H SILL PANEL ASSY',num:'#5450241',list:315.23,autoSel:'s1',opts:[
+    {sid:'s2',type:'OEM',label:'OEM',supplier:'OEM Direct',  cost:252.18,sell:315.23,inScope:true, best:false,eta:'2-3 Days',pno:'5450241',   mno:'--',rule:'100% list',cmt:''},
+    {sid:'s1',type:'AftM',label:'Cert AftM',supplier:'Parts Network',cost:168.00,sell:206.85,inScope:true, best:true, eta:'Same Day', pno:'PN-SILL-5450',mno:'5450241',rule:'85% list', cmt:''},
+    {sid:'s4',type:'Used',label:'Used',supplier:'Eco Parts', cost:95.00, sell:116.95,inScope:true, best:false,eta:'1-2 Days',pno:'5450241',   mno:'--',rule:'85% list', cmt:''},
+    {sid:'s5',type:'Reco',label:'Recon',supplier:'Reco Centre',cost:198.00,sell:243.75,inScope:true,best:false,eta:'3-5 Days',pno:'5450241',  mno:'--',rule:'85% list', cmt:'Fully reconditioned, 12 month warranty.'}
   ]}
 ];
 var SEL={},COLS=['s2','s1','s3','s4','s5'];
