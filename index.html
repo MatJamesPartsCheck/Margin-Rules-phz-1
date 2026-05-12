@@ -238,6 +238,13 @@ table.lv{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
 input[type=text]::-webkit-outer-spin-button,input[type=text]::-webkit-inner-spin-button{display:none}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{display:none}
 input[type=number]{-moz-appearance:textfield}
+/* ── SUPPLIER HEADER TOOLTIP ── */
+.sup-th-wrap{position:relative;display:inline-block;width:100%}
+.sup-hd-tip{display:none;position:fixed;z-index:9999;width:240px;background:#fff;border:2px solid #22c55e;border-radius:6px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.15);pointer-events:none}
+.sup-hd-tip-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f3f4f6}
+.sup-hd-tip-row:last-child{border-bottom:none}
+.sup-hd-tip-l{font-size:11px;font-weight:700;color:#374151}
+.sup-hd-tip-v{font-size:11px;color:#111;text-align:right}
 </style>
 </head>
 <body>
@@ -300,9 +307,9 @@ input[type=number]{-moz-appearance:textfield}
   </div>
 </div>
 <div class="nav-sub" id="nav-sub-price" style="display:flex">
-  <div class="nav-sub-item active"><div class="nav-sub-badge">&#9636;</div>CHECK PRICE</div>
-  <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>INFO</div>
-  <div class="nav-sub-item"><div class="nav-sub-badge" style="font-size:10px">&#128196;</div>DOCUMENTS</div>
+  <div class="nav-sub-item active" id="nsub-checkprice"><div class="nav-sub-badge">&#9636;</div>CHECK PRICE</div>
+  <div class="nav-sub-item" id="nsub-info"><div class="nav-sub-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>INFO</div>
+  <div class="nav-sub-item" id="nsub-documents"><div class="nav-sub-badge" style="font-size:10px">&#128196;</div>DOCUMENTS</div>
 </div>
 
 
@@ -385,7 +392,7 @@ input[type=number]{-moz-appearance:textfield}
       <div id="rule-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:500;background:#fff;border:1px solid #d1d5db;border-radius:8px;box-shadow:0 12px 36px rgba(0,0,0,.15);width:680px;padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <span style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px">Select Active Rule</span>
-          <span style="font-size:11px;color:#6b7280">To edit rules, go to <a onclick="closeRuleDropdown();switchTab('rules',true)" style="color:#1B9B3B;font-weight:700;text-decoration:underline;cursor:pointer">Settings</a></span>
+          <span style="font-size:11px;color:#6b7280;display:flex;align-items:center;gap:6px"><span style="font-size:9px;font-weight:800;background:#22c55e;color:#fff;border-radius:3px;padding:1px 6px;letter-spacing:.3px">NEW</span> To edit rules, go to <a onclick="closeRuleDropdown();switchTab('rules',true)" style="color:#1B9B3B;font-weight:700;text-decoration:underline;cursor:pointer">Settings</a></span>
         </div>
         <div id="rule-dropdown-body" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"></div>
       </div>
@@ -459,24 +466,34 @@ input[type=number]{-moz-appearance:textfield}
             <div class="sel-hd-meta">Part Number &amp; Description</div>
           </th>
           <th class="sup-th-new">
+            <div class="sup-th-wrap" onmouseover="showSupTip('s2',event)" onmouseout="hideSupTip()">
             <div class="sup-circle-new" style="border-color:#337ab7;margin:0 auto 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#337ab7"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div class="sup-label-new">OEM Direct</div>
+            </div>
           </th>
           <th class="sup-th-new">
+            <div class="sup-th-wrap" onmouseover="showSupTip('s1',event)" onmouseout="hideSupTip()">
             <div class="sup-circle-new" style="border-color:#9b59b6;margin:0 auto 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#9b59b6"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div class="sup-label-new">Parts Network</div>
+            </div>
           </th>
           <th class="sup-th-new">
+            <div class="sup-th-wrap" onmouseover="showSupTip('s3',event)" onmouseout="hideSupTip()">
             <div class="sup-circle-new" style="border-color:#e91e8c;margin:0 auto 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#e91e8c"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div class="sup-label-new">ATS Parts</div>
+            </div>
           </th>
           <th class="sup-th-new">
+            <div class="sup-th-wrap" onmouseover="showSupTip('s4',event)" onmouseout="hideSupTip()">
             <div class="sup-circle-new" style="border-color:#5cb85c;margin:0 auto 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#5cb85c"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div class="sup-label-new">Eco Parts</div>
+            </div>
           </th>
           <th class="sup-th-new">
+            <div class="sup-th-wrap" onmouseover="showSupTip('s5',event)" onmouseout="hideSupTip()">
             <div class="sup-circle-new" style="border-color:#f0ad4e;margin:0 auto 4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="#f0ad4e"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div class="sup-label-new">Reco Centre</div>
+            </div>
           </th>
         </tr>
       </thead>
@@ -490,7 +507,150 @@ input[type=number]{-moz-appearance:textfield}
   </div>
 </div>
 
-<!-- ════ SETTINGS SCREEN (React) ════ -->
+<!-- ════ INFO SCREEN ════ -->
+<div id="info-screen" style="display:none;background:#f0f2f5;min-height:400px;padding:24px">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+
+    <!-- Quote header -->
+    <div>
+      <h2 style="font-size:16px;font-weight:800;color:#111">QUOTE: <span style="color:#22c55e">89734</span></h2>
+      <p style="font-size:12px;color:#6b7280;margin-top:3px">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
+    </div>
+
+    <!-- Quote Basic Info -->
+    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+      <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
+        <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Quote Basic Info</span>
+      </div>
+      <div style="padding:4px 0">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Quote</span>
+            <span style="font-size:12px;color:#111;font-weight:700">89734</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Estimator</span>
+            <span style="font-size:12px;color:#111">MJ</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Requested Date</span>
+            <span style="font-size:12px;color:#111">12/05/2026</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Requested Time</span>
+            <span style="font-size:12px;color:#111">10:30am</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Claim No.</span>
+            <span style="font-size:12px;color:#111">CLM-2026-44821</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Status</span>
+            <span style="font-size:12px;color:#111">Saved</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Insurer</span>
+            <span style="font-size:12px;color:#111">Allianz</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Active Rule</span>
+            <span style="font-size:12px;color:#111">Standard Baseline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vehicle Info -->
+    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+      <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
+        <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Vehicle Info</span>
+      </div>
+      <div style="padding:4px 0">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Make</span>
+            <span style="font-size:12px;color:#111">Hyundai</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Month &amp; Year</span>
+            <span style="font-size:12px;color:#111">01/2023</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Model</span>
+            <span style="font-size:12px;color:#111">Tucson</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Vehicle Rego</span>
+            <span style="font-size:12px;color:#111">ABC123</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Body Style</span>
+            <span style="font-size:12px;color:#111">SUV 5 Door</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px;border-bottom:1px solid #f3f4f6">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Series</span>
+            <span style="font-size:12px;color:#111">NX4</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="display:flex;gap:0;padding:10px 20px">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">VIN</span>
+            <span style="font-size:12px;color:#111">KMHJ341BDPU123456</span>
+          </div>
+          <div style="display:flex;gap:0;padding:10px 20px">
+            <span style="font-size:12px;font-weight:600;color:#374151;min-width:140px">Comments</span>
+            <span style="font-size:12px;color:#9ca3af;font-style:italic">None</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Parts -->
+    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+      <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
+        <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">No Parts</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;padding:8px 20px;border-bottom:1px solid #f3f4f6">
+        <span style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px">Supplier</span>
+        <span style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px">Comments</span>
+      </div>
+      <div style="padding:24px 20px;text-align:center;font-size:12px;color:#9ca3af;font-style:italic">
+        All suppliers responded — no cut-offs on this quote.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ DOCUMENTS SCREEN ════ -->
+<div id="documents-screen" style="display:none;background:#f0f2f5;min-height:400px;padding:24px">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+    <div>
+      <h2 style="font-size:16px;font-weight:800;color:#111">QUOTE: <span style="color:#22c55e">89734</span></h2>
+      <p style="font-size:12px;color:#6b7280;margin-top:3px">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
+    </div>
+    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+      <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
+        <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Documents</span>
+      </div>
+      <div style="padding:32px 20px;text-align:center">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="1.5" style="margin:0 auto 10px;display:block"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <p style="font-size:13px;color:#9ca3af;font-style:italic">No documents from supplier</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="rules-screen" style="display:none">
   <div id="settings-back-banner" style="display:none;background:#fffbeb;border-bottom:1px solid #fde68a;padding:7px 20px;display:none;align-items:center;gap:10px;font-size:12px;color:#92400e">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" style="flex-shrink:0"><polyline points="15 18 9 12 15 6"/></svg>
@@ -554,6 +714,9 @@ input[type=number]{-moz-appearance:textfield}
           <label class="err" id="rr1"><input type="radio" name="pm"><span class="erl">Add % mark up to cost</span><div class="erpw"><input class="erpi" id="rpi1" type="number" value="30" disabled onclick="event.stopPropagation()"><span>%</span></div></label>
           <label class="err" id="rr2"><input type="radio" name="pm"><span class="erl">Add % show mark up to cost</span><div class="erpw"><input class="erpi" id="rpi2" type="number" value="30" disabled onclick="event.stopPropagation()"><span>%</span></div></label>
           <label class="err" id="rr3"><input type="radio" name="pm"><span class="erl">Use dealer list and part number</span></label>
+          <label class="err" id="rr4"><input type="radio" name="pm"><span class="erl">Manually enter sell price</span>
+            <div class="erpw"><span style="font-size:12px;color:#6b7280">$</span><input class="erpi" id="rpi4" type="number" value="" disabled placeholder="0.00" onclick="event.stopPropagation()" style="width:80px"></div>
+          </label>
         </div>
         <div class="eht">This pricing method overrides this line item only.</div>
       </div>
@@ -566,6 +729,9 @@ input[type=number]{-moz-appearance:textfield}
 </div>
 
 <div class="toast" id="toast"><div class="tdot">&#10003;</div><span>Best in-scope options selected</span></div>
+
+<!-- Supplier header tooltip -->
+<div class="tt" id="sup-hd-tip" style="width:230px"></div>
 
 <!-- ════ VANILLA JS — CHECK PRICE LOGIC ════ -->
 <script>
@@ -868,7 +1034,7 @@ function updatePrintState(hasSelections){
 function openModal(name,supplier,pno){document.getElementById('modal-sub').textContent=name+' \u2014 '+supplier;document.getElementById('modal-partno').value=pno;document.getElementById('modal-pntype').value='';selPricing(0);document.getElementById('editModal').classList.add('open');}
 function closeModal(){document.getElementById('editModal').classList.remove('open');}
 function selPricing(idx){
-  for(var r=0;r<4;r++){var row=document.getElementById('rr'+r),inp=document.getElementById('rpi'+r);if(row)row.classList.remove('active');if(inp)inp.disabled=true;}
+  for(var r=0;r<5;r++){var row=document.getElementById('rr'+r),inp=document.getElementById('rpi'+r);if(row)row.classList.remove('active');if(inp)inp.disabled=true;}
   var ar=document.getElementById('rr'+idx),ai=document.getElementById('rpi'+idx);
   if(ar)ar.classList.add('active');if(ai)ai.disabled=false;
 }
@@ -1005,9 +1171,49 @@ function goBackToQuote(){
   switchTab('price');
 }
 
+function showPriceSubTab(name){
+  document.getElementById('price-screen').style.display=name==='check'?'block':'none';
+  document.getElementById('info-screen').style.display=name==='info'?'block':'none';
+  document.getElementById('documents-screen').style.display=name==='documents'?'block':'none';
+  document.querySelectorAll('#nav-sub-price .nav-sub-item').forEach(function(el){el.classList.remove('active');});
+  var ids={check:'nsub-checkprice',info:'nsub-info',documents:'nsub-documents'};
+  var active=document.getElementById(ids[name]);
+  if(active) active.classList.add('active');
+}
+
+// ── Supplier header tooltips ──
+var SUP_INFO={
+  s2:{name:'OEM Direct',    status:'Quoting',phone:'02 9123 4567',type:'OEM Dealer',      delivery:'Next Run / $0.00',expiry:'25/04/2026',quoteNo:'OEM-89734',disc:'0.00%'},
+  s1:{name:'Parts Network', status:'Quoting',phone:'03 8765 4321',type:'Aftermarket',      delivery:'1–2 Days / $0.00', expiry:'25/04/2026',quoteNo:'PN-89734', disc:'5.00%'},
+  s3:{name:'ATS Parts',     status:'Quoting',phone:'07 3456 7890',type:'OEM / Parallel',   delivery:'Same Day / $0.00', expiry:'25/04/2026',quoteNo:'ATS-89734',disc:'0.00%'},
+  s4:{name:'Eco Parts',     status:'Quoting',phone:'08 6789 0123',type:'Used / Salvage',   delivery:'Next Run / $0.00', expiry:'25/04/2026',quoteNo:'ECO-89734',disc:'0.00%'},
+  s5:{name:'Reco Centre',   status:'Quoting',phone:'02 4567 8901',type:'Reconditioned',    delivery:'3–5 Days / $0.00', expiry:'25/04/2026',quoteNo:'RC-89734', disc:'2.50%'},
+};
+function showSupTip(sid,e){
+  var s=SUP_INFO[sid];if(!s)return;
+  var tip=document.getElementById('sup-hd-tip');
+  var rows=[
+    {l:'Status',v:s.status},{l:'Phone',v:s.phone},
+    {l:'Type',v:s.type},{l:'Delivery',v:s.delivery},
+    {l:'Price Expiry',v:s.expiry},{l:'Supplier Quote #',v:s.quoteNo},{l:'Settlement Disc',v:s.disc}
+  ];
+  tip.innerHTML='<div class="tth">'+s.name+'</div>'
+    +rows.map(function(r){return '<div class="ttr"><span class="ttl">'+r.l+'</span><span class="ttv">'+r.v+'</span></div>';}).join('');
+  var x=e.clientX,y=e.clientY;
+  tip.style.left=Math.min(x-115,window.innerWidth-250)+'px';
+  tip.style.top=(y+14)+'px';
+  tip.style.display='block';
+}
+function hideSupTip(){
+  var tip=document.getElementById('sup-hd-tip');
+  if(tip) tip.style.display='none';
+}
+
 function switchTab(name,fromQuote){
   var isRules=(name==='rules');
   document.getElementById('price-screen').style.display=isRules?'none':'block';
+  document.getElementById('info-screen').style.display='none';
+  document.getElementById('documents-screen').style.display='none';
   document.getElementById('rules-screen').style.display=isRules?'block':'none';
   document.getElementById('nav-sub-price').style.display=isRules?'none':'flex';
   document.querySelectorAll('.nav-link').forEach(function(el){el.classList.remove('active');var ic=el.querySelector('.nav-icon-circle');if(ic)ic.classList.add('gray');});
@@ -1029,6 +1235,9 @@ function switchTab(name,fromQuote){
 }
 document.getElementById('nl-check').addEventListener('click',function(){switchTab('price');});
 document.getElementById('nl-rules').addEventListener('click',function(){switchTab('rules');});
+document.getElementById('nsub-checkprice').addEventListener('click',function(){showPriceSubTab('check');});
+document.getElementById('nsub-info').addEventListener('click',function(){showPriceSubTab('info');});
+document.getElementById('nsub-documents').addEventListener('click',function(){showPriceSubTab('documents');});
 
 // Tooltip JS positioning
 document.addEventListener('mouseover', function(e) {
