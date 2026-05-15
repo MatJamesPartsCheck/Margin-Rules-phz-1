@@ -35,7 +35,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .nav-sub-item.active .nav-sub-badge{background:#0FA83E;color:#fff}
 
 /* ── CHECK PRICE SCREEN ── */
-.qh{background:white;padding:10px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:104px;z-index:298}
+.qh{background:white;padding:10px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .qh h2{font-size:14px;font-weight:700;color:#111}
 .qh h2 span{color:#0FA83E}
 .qh p{color:#6b7280;font-size:11px;margin-top:1px}
@@ -323,7 +323,7 @@ input[type=number]{-moz-appearance:textfield}
 
 <!-- ════ CHECK PRICE SCREEN ════ -->
 <div id="price-screen">
-  <div class="qh">
+  <div class="qh" style="position:sticky;top:104px;z-index:298">
     <div>
       <h2>QUOTE: <span>89734</span></h2>
       <p>Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong>Allianz</strong></p>
@@ -517,13 +517,11 @@ input[type=number]{-moz-appearance:textfield}
 
 <!-- ════ INFO SCREEN ════ -->
 <div id="info-screen" style="display:none;background:#f0f2f5;min-height:400px;padding:24px">
-  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
-
-    <!-- Quote header -->
-    <div>
-      <h2 style="font-size:16px;font-weight:800;color:#111">QUOTE: <span style="color:#0FA83E">89734</span></h2>
-      <p style="font-size:12px;color:#6b7280;margin-top:3px">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
-    </div>
+  <div style="margin-bottom:20px">
+    <div style="font-size:14px;font-weight:800;color:#111;margin-bottom:4px">QUOTE: <span style="color:#0FA83E">89734</span></div>
+    <p style="font-size:12px;color:#6b7280;margin:0">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
 
     <!-- Quote Basic Info -->
     <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
@@ -642,11 +640,11 @@ input[type=number]{-moz-appearance:textfield}
 
 <!-- ════ DOCUMENTS SCREEN ════ -->
 <div id="documents-screen" style="display:none;background:#f0f2f5;min-height:400px;padding:24px">
-  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
-    <div>
-      <h2 style="font-size:16px;font-weight:800;color:#111">QUOTE: <span style="color:#0FA83E">89734</span></h2>
-      <p style="font-size:12px;color:#6b7280;margin-top:3px">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
-    </div>
+  <div style="margin-bottom:20px">
+    <div style="font-size:14px;font-weight:800;color:#111;margin-bottom:4px">QUOTE: <span style="color:#0FA83E">89734</span></div>
+    <p style="font-size:12px;color:#6b7280;margin:0">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
     <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
       <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
         <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Documents</span>
@@ -1327,7 +1325,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
   const saveQ     = () => { setRules(r=>r.map(x=>x.id===qId?qRow:x)); setQId(null); setQRow(null); };
   const cancelQ   = () => { setQId(null); setQRow(null); };
   const sorted    = [...rules].sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
-  const C6="175px 1fr 1fr 1fr 1fr 1fr 200px", C5="175px 1fr 1fr 1fr 1fr 1fr 220px";
+  const C6="150px 150px 1fr 1fr 1fr 1fr 1fr 200px", C5="150px 150px 1fr 1fr 1fr 1fr 1fr 220px";
   const COL_HDR={padding:"10px 8px",fontSize:"11px",fontWeight:"700",color:"#4b5563",textTransform:"uppercase",letterSpacing:"0.6px"};
   const CELL={padding:"12px 8px",fontSize:"13px",color:"#6b7280"};
 
@@ -1381,17 +1379,20 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
           <p style={{fontSize:"12px",color:"#6b7280",marginBottom:"12px"}}>Read-only starting points. Copy any template to create your own editable version.</p>
           <div style={{border:"1px solid #e5e7eb",borderRadius:"6px",overflow:"hidden"}}>
             <div style={{display:"grid",gridTemplateColumns:C6,background:"#f8fafc",padding:"0 16px",borderBottom:"1px solid #e5e7eb"}}>
-              {["Rule / Insurer","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
+              {["Rule Name","Applies To","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
             </div>
             {SYSRULES.filter(r=>r.isDefault).map((r)=>(
               <div key={r.id} style={{display:"grid",gridTemplateColumns:C6,padding:"0 16px",alignItems:"center",background:"#fff"}}>
                 <div style={{padding:"12px 8px"}}>
-                  <div style={{fontSize:"13px",fontWeight:"700",color:"#111",marginBottom:"4px"}}>{r.insurer}</div>
+                  <div style={{fontSize:"13px",fontWeight:"700",color:"#111",marginBottom:"4px"}}>Standard Baseline</div>
                   <div style={{display:"flex",alignItems:"center",gap:"4px",marginBottom:"2px"}}>
                     <span style={{fontSize:"9px",fontWeight:"700",background:"#e5e7eb",color:"#6b7280",borderRadius:"3px",padding:"1px 5px"}}>SYSTEM</span>
                     {r.isDefault&&<span style={{fontSize:"9px",fontWeight:"700",background:"#dcfce7",color:"#166534",borderRadius:"3px",padding:"1px 5px"}}>DEFAULT</span>}
                   </div>
                   <div style={{fontSize:"11px",color:"#9ca3af"}}>{r.desc}</div>
+                </div>
+                <div style={{padding:"12px 8px"}}>
+                  <div style={{fontSize:"13px",color:"#374151"}}>{r.insurer}</div>
                 </div>
                 {["oem","aftm","reco","parallel","recycled"].map(f=><div key={f} style={CELL}>{r[f]}</div>)}
                 <div style={{padding:"12px 8px"}}><button onClick={()=>onCopy(r)} style={{background:"#f9fafb",border:"1px solid #d1d5db",borderRadius:"5px",padding:"5px 12px",fontSize:"11px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>Copy &amp; customise</button></div>
@@ -1420,7 +1421,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
           ):(
             <div style={{border:"1px solid #e5e7eb",borderRadius:"6px",overflow:"hidden"}}>
               <div style={{display:"grid",gridTemplateColumns:C5,background:"#f8fafc",padding:"0 16px",borderBottom:"1px solid #e5e7eb"}}>
-                {["Rule / Insurer","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
+                {["Rule Name","Applies To","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
               </div>
               {sorted.map((rule,idx)=>{
                 const isQ=qId===rule.id;
@@ -1435,6 +1436,9 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                             {!rule.active&&<span style={{fontSize:"9px",fontWeight:"700",background:"#f3f4f6",color:"#9ca3af",borderRadius:"4px",padding:"1px 5px"}}>INACTIVE</span>}
                           </div>
                       }
+                    </div>
+                    <div style={{padding:"12px 8px"}}>
+                      <span style={{fontSize:"13px",color:"#374151"}}>{rule.appliesTo||rule.insurer}</span>
                     </div>
                     {["oem","aftm","reco","parallel","recycled"].map(f=>(
                       <div key={f} style={{padding:"12px 8px"}}>
@@ -1535,15 +1539,12 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
   const summary = rows.map(r=>r.pt+": "+(r.method==="Charge of List"?r.val+"% of list":r.method==="Markup on Cost"?"+"+r.val+"% markup":r.method));
   return (
     <div style={{background:"#f4f5f7",minHeight:"calc(100vh - 113px)"}}>
-      <div style={{padding:"24px 24px 0",maxWidth:"960px",margin:"0 auto"}}>
-        <div style={{marginBottom:"20px"}}>
-          <h2 style={{fontSize:"14px",fontWeight:"800",color:"#111"}}>{isEdit?"Edit Rule":"Create Rule"}</h2>
-          <p style={{fontSize:"12px",color:"#6b7280",marginTop:"3px"}}>{isEdit?"Update the pricing rule details below":"Fill in the details below to add a new margin rule"}</p>
-        </div>
+      <div style={{padding:"24px 24px 0"}}>
+        <div style={{fontSize:"14px",fontWeight:"800",color:"#111",marginBottom:"4px"}}>{isEdit?"Edit Rule":"Add Rule"}</div>
+        <p style={{fontSize:"12px",color:"#6b7280",margin:"0 0 20px 0"}}>{isEdit?"Update the pricing rule details below":"Fill in the details below to add a new margin rule"}</p>
       </div>
-      <div style={{padding:"0 24px 28px",maxWidth:"960px",margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 260px",gap:"20px",alignItems:"start"}}>
+      <div style={{padding:"0 24px 28px",display:"grid",gridTemplateColumns:"1fr 260px",gap:"20px",alignItems:"start"}}>
         <div>
-          {/* Step 1: Details */}
           <div style={{background:"#fff",marginBottom:"16px",borderRadius:"8px",border:"1px solid #e5e7eb",overflow:"hidden"}}>
             <div style={{background:"#f8fafc",padding:"11px 20px",borderBottom:"1px solid #e5e7eb"}}>
               <span style={{fontSize:"11px",fontWeight:"700",color:"#6b7280",textTransform:"uppercase",letterSpacing:".6px"}}>Rule Details</span>
@@ -1846,12 +1847,12 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
 /* ─── ROOT APP ─── */
 function RulesApp() {
   const [screen,setScreen]   = useState("dashboard");
-  const [rules,setRules]     = useState([
-    {id:101,insurer:"NRMA Insurance", oem:"100% of List",aftm:"70% of List",reco:"20% Markup of Cost",parallel:"15% Markup of Cost",recycled:"20% Markup of Cost",active:true,pinned:false},
-    {id:102,insurer:"AAMI",           oem:"100% of List",aftm:"68% of List",reco:"22% Markup of Cost",parallel:"18% Markup of Cost",recycled:"22% Markup of Cost",active:true,pinned:false},
-    {id:103,insurer:"Allianz",        oem:"100% of List",aftm:"72% of List",reco:"25% Markup of Cost",parallel:"20% Markup of Cost",recycled:"25% Markup of Cost",active:true,pinned:false},
-    {id:104,insurer:"Suncorp",        oem:"100% of List",aftm:"69% of List",reco:"19% Markup of Cost",parallel:"14% Markup of Cost",recycled:"19% Markup of Cost",active:true,pinned:false},
-    {id:105,insurer:"QBE",            oem:"100% of List",aftm:"67% of List",reco:"17% Markup of Cost",parallel:"13% Markup of Cost",recycled:"17% Markup of Cost",active:true,pinned:false},
+  const [rules,setRules] = useState([
+    {id:101,insurer:"NRMA Standard",    appliesTo:"NRMA Insurance", oem:"100% of List",aftm:"70% of List",reco:"20% Markup of Cost",parallel:"15% Markup of Cost",recycled:"20% Markup of Cost",active:true,pinned:false},
+    {id:102,insurer:"AAMI Standard",    appliesTo:"AAMI",           oem:"100% of List",aftm:"68% of List",reco:"22% Markup of Cost",parallel:"18% Markup of Cost",recycled:"22% Markup of Cost",active:true,pinned:false},
+    {id:103,insurer:"Allianz Standard", appliesTo:"Allianz",        oem:"100% of List",aftm:"72% of List",reco:"25% Markup of Cost",parallel:"20% Markup of Cost",recycled:"25% Markup of Cost",active:true,pinned:false},
+    {id:104,insurer:"Suncorp Standard", appliesTo:"Suncorp",        oem:"100% of List",aftm:"69% of List",reco:"19% Markup of Cost",parallel:"14% Markup of Cost",recycled:"19% Markup of Cost",active:true,pinned:false},
+    {id:105,insurer:"QBE Standard",     appliesTo:"QBE",            oem:"100% of List",aftm:"67% of List",reco:"17% Markup of Cost",parallel:"13% Markup of Cost",recycled:"17% Markup of Cost",active:true,pinned:false},
   ]);
   const [editing,setEditing] = useState(null);
   const [isCopy,setIsCopy]   = useState(false);
