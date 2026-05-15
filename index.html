@@ -56,7 +56,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .sv.grn{color:#0FA83E}
 .pw{position:relative;display:inline-block;margin-top:5px}
 .pw:hover .ptip{display:block}
-.ptip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:220px;background:#1a1a2e;color:#e2e8f0;font-size:11px;line-height:1.5;padding:8px 10px;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none;z-index:500;white-space:normal}
+.ptip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:220px;background:#1a1a2e;color:#e2e8f0;font-size:11px;line-height:1.5;padding:8px 10px;border-radius:4px;box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none;z-index:500;white-space:normal}
 .ptip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e}
 .pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid transparent;cursor:default}
 .pd{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
@@ -66,7 +66,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .dbd{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700}
 .sihov{position:relative;cursor:default}
 .sihov:hover .sitip{display:block}
-.sitip{display:none;position:absolute;top:calc(100% + 8px);left:0;width:260px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.10);pointer-events:none;z-index:500}
+.sitip{display:none;position:absolute;top:calc(100% + 8px);left:0;width:260px;background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.10);pointer-events:none;z-index:500}
 
 .sitip-row{display:flex;justify-content:space-between;align-items:flex-start;padding:4px 0;border-bottom:1px solid #f3f4f6}
 .sitip-l{font-size:10px;color:#6b7280;flex-shrink:0;padding-right:8px}
@@ -83,7 +83,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .no-rule a{color:#d97706;font-weight:700;text-decoration:underline;cursor:pointer}
 .rpill{position:relative;font-size:10px;font-weight:600;border-radius:10px;padding:2px 8px;cursor:default;display:inline-block}
 .rpill:hover .rpill-tip{display:block}
-.rpill-tip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#1a1a2e;color:#e2e8f0;font-size:11px;padding:5px 9px;border-radius:5px;box-shadow:0 4px 12px rgba(0,0,0,.3);pointer-events:none;z-index:600}
+.rpill-tip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#1a1a2e;color:#e2e8f0;font-size:11px;padding:5px 9px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.3);pointer-events:none;z-index:600}
 .rpill-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e}
 @keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
 .btn-pulse{animation:pulse-green 1.5s ease-in-out 3}
@@ -121,7 +121,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .cfg{border-color:transparent #0FA83E transparent transparent}
 .cfr{border-color:transparent #ef4444 transparent transparent}
 .cftick{position:absolute;top:1px;right:1px;font-size:8px;font-weight:900;color:white;line-height:1;pointer-events:none}
-.cftip{display:none;position:absolute;top:22px;right:-10px;white-space:nowrap;background:#1a1a2e;color:#e2e8f0;font-size:11px;line-height:1.5;padding:6px 10px;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none;z-index:600}
+.cftip{display:none;position:absolute;top:22px;right:-10px;white-space:nowrap;background:#1a1a2e;color:#e2e8f0;font-size:11px;line-height:1.5;padding:6px 10px;border-radius:4px;box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none;z-index:600}
 .cftip::before{content:'';position:absolute;bottom:100%;right:12px;border:5px solid transparent;border-bottom-color:#e5e7eb}
 .selbar{display:flex;align-items:center;justify-content:space-between;padding:3px 6px;margin-top:5px;border-radius:3px;background:#0FA83E}
 .selbar.red{background:#ef4444}
@@ -141,7 +141,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 /* ── EDIT MODAL ── */
 .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:800;align-items:center;justify-content:center}
 .mo.open{display:flex}
-.md{background:white;border-radius:8px;width:480px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
+.md{background:white;border-radius:4px;width:480px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
 .mhd{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between}
 .mht{font-size:14px;font-weight:700;color:#111}
 .mhs{font-size:11px;color:#6b7280;margin-top:2px}
@@ -166,7 +166,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .embp{background:#0FA83E;color:white;border-color:#0d9235}
 
 /* ── TOAST ── */
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a2e;color:white;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;opacity:0;transition:all .4s;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a2e;color:white;padding:12px 24px;border-radius:4px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;opacity:0;transition:all .4s;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 .tdot{width:20px;height:20px;background:#0FA83E;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px}
 /* ── NEW GRID STYLES ── */
@@ -200,12 +200,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .pmenu-item:hover{background:#f9fafb}
 .pmenu-item:last-child{border-bottom:none}
 .pmod-label{font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.pmod-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid #e5e7eb;border-radius:5px;margin-bottom:6px;background:#fff;cursor:pointer}
+.pmod-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid #e5e7eb;border-radius:4px;margin-bottom:6px;background:#fff;cursor:pointer}
 .pmod-row:hover{background:#f9fafb}
 .pmod-rl{font-size:12px;color:#374151;font-weight:600;flex:1}
 .pmod-rs{font-size:11px;color:#9ca3af;margin-top:2px;font-weight:400}
 .pmod-check{width:15px;height:15px;accent-color:#0FA83E;cursor:pointer;flex-shrink:0;margin-top:1px}
-.pmod-frozen{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:5px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;margin-top:12px}
+.pmod-frozen{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:4px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;margin-top:12px}
 /* ── SETTINGS SIDEBAR ── */
 .settings-nav-item{padding:10px 20px;font-size:13px;font-weight:500;color:#374151;cursor:pointer;border-left:3px solid transparent;transition:all .12s}
 .settings-nav-item:hover{background:#f9fafb;color:#111}
@@ -240,7 +240,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 input[type=number]{-moz-appearance:textfield}
 /* ── SUPPLIER HEADER TOOLTIP ── */
 .sup-th-wrap{position:relative;display:inline-block;width:100%}
-.sup-hd-tip{display:none;position:fixed;z-index:9999;width:240px;background:#fff;border:2px solid #0FA83E;border-radius:6px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.15);pointer-events:none}
+.sup-hd-tip{display:none;position:fixed;z-index:9999;width:240px;background:#fff;border:2px solid #0FA83E;border-radius:4px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.15);pointer-events:none}
 .sup-hd-tip-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f3f4f6}
 .sup-hd-tip-row:last-child{border-bottom:none}
 .sup-hd-tip-l{font-size:11px;font-weight:700;color:#374151}
@@ -397,7 +397,7 @@ input[type=number]{-moz-appearance:textfield}
         </button>
       </div>
       <!-- Dropdown panel -->
-      <div id="rule-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:500;background:#fff;border:1px solid #d1d5db;border-radius:8px;box-shadow:0 12px 36px rgba(0,0,0,.15);width:680px;padding:16px">
+      <div id="rule-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:500;background:#fff;border:1px solid #d1d5db;border-radius:4px;box-shadow:0 12px 36px rgba(0,0,0,.15);width:680px;padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <span style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px">Select Active Rule</span>
           <span style="font-size:11px;color:#6b7280;display:flex;align-items:center;gap:6px"><span style="font-size:9px;font-weight:800;background:#0FA83E;color:#fff;border-radius:3px;padding:1px 6px;letter-spacing:.3px">NEW</span> To edit rules, go to <a onclick="closeRuleDropdown();switchTab('rules',true)" style="color:#0FA83E;font-weight:700;text-decoration:underline;cursor:pointer">Settings</a></span>
@@ -420,7 +420,7 @@ input[type=number]{-moz-appearance:textfield}
         Print
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div id="print-menu" style="display:none;position:absolute;right:0;top:calc(100% + 4px);background:#fff;border:1px solid #d1d5db;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:400;width:270px;overflow:hidden">
+      <div id="print-menu" style="display:none;position:absolute;right:0;top:calc(100% + 4px);background:#fff;border:1px solid #d1d5db;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:400;width:270px;overflow:hidden">
         <div style="padding:8px 12px;font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #f0f2f5">Print Options</div>
         <div class="pmenu-item" onclick="closePrintMenu()">
           <div style="font-size:12px;font-weight:600;color:#111">Print Available Prices</div>
@@ -524,7 +524,7 @@ input[type=number]{-moz-appearance:textfield}
   <div style="display:flex;flex-direction:column;gap:16px">
 
     <!-- Quote Basic Info -->
-    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+    <div style="background:#fff;border-radius:4px;border:1px solid #e5e7eb;overflow:hidden">
       <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
         <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Quote Basic Info</span>
       </div>
@@ -573,7 +573,7 @@ input[type=number]{-moz-appearance:textfield}
     </div>
 
     <!-- Vehicle Info -->
-    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+    <div style="background:#fff;border-radius:4px;border:1px solid #e5e7eb;overflow:hidden">
       <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
         <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Vehicle Info</span>
       </div>
@@ -622,7 +622,7 @@ input[type=number]{-moz-appearance:textfield}
     </div>
 
     <!-- No Parts -->
-    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+    <div style="background:#fff;border-radius:4px;border:1px solid #e5e7eb;overflow:hidden">
       <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
         <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">No Parts</span>
       </div>
@@ -645,7 +645,7 @@ input[type=number]{-moz-appearance:textfield}
     <p style="font-size:12px;color:#6b7280;margin:0">Hyundai Tucson, 2023 &middot; ABC123 &middot; Insurer: <strong style="color:#374151">Allianz</strong></p>
   </div>
   <div style="display:flex;flex-direction:column;gap:16px">
-    <div style="background:#fff;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden">
+    <div style="background:#fff;border-radius:4px;border:1px solid #e5e7eb;overflow:hidden">
       <div style="background:#f8fafc;padding:11px 20px;border-bottom:1px solid #e5e7eb">
         <span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.6px">Documents</span>
       </div>
@@ -706,7 +706,7 @@ input[type=number]{-moz-appearance:textfield}
           <div style="position:relative">
             <input class="efin" id="modal-pntype" placeholder="Type or select..." autocomplete="off"
               oninput="filterPNCombo(this.value)" onfocus="showPNCombo()" onblur="setTimeout(hidePNCombo,150)">
-            <div id="pntype-dropdown" style="display:none;position:absolute;top:calc(100% + 2px);left:0;right:0;background:#fff;border:1px solid #d1d5db;border-radius:5px;box-shadow:0 4px 12px rgba(0,0,0,0.1);z-index:500;max-height:180px;overflow-y:auto"></div>
+            <div id="pntype-dropdown" style="display:none;position:absolute;top:calc(100% + 2px);left:0;right:0;background:#fff;border:1px solid #d1d5db;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.1);z-index:500;max-height:180px;overflow-y:auto"></div>
           </div>
         </div>
         <div class="efg"><label class="efl">Part Number</label>
@@ -946,7 +946,7 @@ function renderRuleDropdown(){
   all.forEach(function(r){
     var isActive=(activeRuleId===r.id);
     var pricing=[{l:'OEM',v:r.oem},{l:'Aftm',v:r.aftm},{l:'Reco',v:r.reco},{l:'Parallel',v:r.parallel}];
-    h+='<div onclick="applyRuleDropdown(\''+r.id+'\')" style="border:2px solid '+(isActive?'#0FA83E':'#e5e7eb')+';border-radius:6px;padding:10px 12px;cursor:pointer;background:'+(isActive?'#f0fdf4':'#fff')+';transition:all .15s" onmouseover="if(\''+r.id+'\'!==\''+activeRuleId+'\')this.style.borderColor=\'#d1d5db\'" onmouseout="if(\''+r.id+'\'!==\''+activeRuleId+'\')this.style.borderColor=\'#e5e7eb\'">'
+    h+='<div onclick="applyRuleDropdown(\''+r.id+'\')" style="border:2px solid '+(isActive?'#0FA83E':'#e5e7eb')+';border-radius:4px;padding:10px 12px;cursor:pointer;background:'+(isActive?'#f0fdf4':'#fff')+';transition:all .15s" onmouseover="if(\''+r.id+'\'!==\''+activeRuleId+'\')this.style.borderColor=\'#d1d5db\'" onmouseout="if(\''+r.id+'\'!==\''+activeRuleId+'\')this.style.borderColor=\'#e5e7eb\'">'
       +'<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">'
       +'<div style="width:14px;height:14px;border-radius:50%;border:2px solid '+(isActive?'#0FA83E':'#d1d5db')+';display:flex;align-items:center;justify-content:center;flex-shrink:0">'
       +(isActive?'<div style="width:6px;height:6px;border-radius:50%;background:#0FA83E"></div>':'')
@@ -1303,7 +1303,7 @@ const SUGGESTED = {
   "Bingle":{oem:"100",aftm:"63",reco:"14",parallel:"9"},
 };
 
-const iSt={width:"100%",border:"1px solid #e5e7eb",borderRadius:"5px",padding:"8px 10px",fontSize:"13px",outline:"none",background:"#fff",fontFamily:"inherit",boxSizing:"border-box"};
+const iSt={width:"100%",border:"1px solid #e5e7eb",borderRadius:"4px",padding:"8px 10px",fontSize:"13px",outline:"none",background:"#fff",fontFamily:"inherit",boxSizing:"border-box"};
 const sSt={...iSt,cursor:"pointer",appearance:"none",backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,backgroundRepeat:"no-repeat",backgroundPosition:"right 10px center",paddingRight:"28px"};
 
 const Toggle = ({checked,onChange}) => (
@@ -1377,7 +1377,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
             <span style={{fontSize:"11px",fontWeight:"700",background:"#f3f4f6",color:"#374151",border:"1px solid #e5e7eb",borderRadius:"10px",padding:"2px 8px"}}>1 provided</span>
           </div>
           <p style={{fontSize:"12px",color:"#6b7280",marginBottom:"12px"}}>Read-only starting points. Copy any template to create your own editable version.</p>
-          <div style={{border:"1px solid #e5e7eb",borderRadius:"6px",overflow:"hidden"}}>
+          <div style={{border:"1px solid #e5e7eb",borderRadius:"4px",overflow:"hidden"}}>
             <div style={{display:"grid",gridTemplateColumns:C6,background:"#f8fafc",padding:"0 16px",borderBottom:"1px solid #e5e7eb"}}>
               {["Rule Name","Applies To","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
             </div>
@@ -1394,7 +1394,7 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                   <div style={{fontSize:"13px",color:"#374151"}}>{r.appliesTo||r.insurer}</div>
                 </div>
                 {["oem","aftm","reco","parallel","recycled"].map(f=><div key={f} style={CELL}>{r[f]}</div>)}
-                <div style={{padding:"12px 8px"}}><button onClick={()=>onCopy(r)} style={{background:"#f9fafb",border:"1px solid #d1d5db",borderRadius:"5px",padding:"5px 12px",fontSize:"11px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>Copy &amp; customise</button></div>
+                <div style={{padding:"12px 8px"}}><button onClick={()=>onCopy(r)} style={{background:"#f9fafb",border:"1px solid #d1d5db",borderRadius:"4px",padding:"5px 12px",fontSize:"11px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>Copy &amp; customise</button></div>
               </div>
             ))}
           </div>
@@ -1407,18 +1407,18 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
               <span style={{fontSize:"14px",fontWeight:"800",color:"#111"}}>Margin Rules</span>
               {rules.length>0&&<span style={{fontSize:"11px",fontWeight:"700",background:"#f3f4f6",color:"#374151",border:"1px solid #e5e7eb",borderRadius:"10px",padding:"2px 8px"}}>{rules.length} rule{rules.length>1?"s":""}</span>}
             </div>
-            <button onClick={onCreate} style={{background:"#0FA83E",color:"white",border:"none",borderRadius:"6px",padding:"7px 14px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>+ Add rule</button>
+            <button onClick={onCreate} style={{background:"#0FA83E",color:"white",border:"none",borderRadius:"4px",padding:"7px 14px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>+ Add rule</button>
           </div>
           <p style={{fontSize:"12px",color:"#6b7280",marginBottom:"12px"}}>Rules you've created or copied from templates.</p>
           {sorted.length===0?(
-            <div style={{border:"1px solid #e5e7eb",borderRadius:"6px",padding:"32px 20px",textAlign:"center"}}>
+            <div style={{border:"1px solid #e5e7eb",borderRadius:"4px",padding:"32px 20px",textAlign:"center"}}>
               <div style={{fontSize:"24px",marginBottom:"8px"}}>📋</div>
               <div style={{fontSize:"14px",fontWeight:"700",color:"#374151",marginBottom:"4px"}}>No margin rules yet</div>
               <div style={{fontSize:"12px",color:"#9ca3af",marginBottom:"16px"}}>Copy a system template above or add a rule from scratch.</div>
-              <button onClick={onCreate} style={{background:"#1f2937",color:"white",border:"none",borderRadius:"6px",padding:"8px 20px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>Add your first rule</button>
+              <button onClick={onCreate} style={{background:"#1f2937",color:"white",border:"none",borderRadius:"4px",padding:"8px 20px",fontSize:"12px",fontWeight:"700",cursor:"pointer"}}>Add your first rule</button>
             </div>
           ):(
-            <div style={{border:"1px solid #e5e7eb",borderRadius:"6px",overflow:"hidden"}}>
+            <div style={{border:"1px solid #e5e7eb",borderRadius:"4px",overflow:"hidden"}}>
               <div style={{display:"grid",gridTemplateColumns:C5,background:"#f8fafc",padding:"0 16px",borderBottom:"1px solid #e5e7eb"}}>
                 {["Rule Name","Applies To","OEM","Aftm","Reco","Parallel","Recycled","Actions"].map(h=><div key={h} style={COL_HDR}>{h}</div>)}
               </div>
@@ -1448,8 +1448,8 @@ function Dashboard({rules,setRules,onCreate,onEdit,onCopy}) {
                     <div style={{padding:"12px 8px",display:"flex",gap:"4px",flexWrap:"wrap",alignItems:"center"}}>
                       {isQ?(
                         <>
-                          <button onClick={saveQ} style={{background:"#0FA83E",border:"none",color:"white",borderRadius:"5px",padding:"5px 10px",fontSize:"11px",fontWeight:"700",cursor:"pointer"}}>Save</button>
-                          <button onClick={cancelQ} style={{background:"#f3f4f6",border:"1px solid #e5e7eb",color:"#6b7280",borderRadius:"5px",padding:"5px 7px",fontSize:"11px",cursor:"pointer"}}>✕</button>
+                          <button onClick={saveQ} style={{background:"#0FA83E",border:"none",color:"white",borderRadius:"4px",padding:"5px 10px",fontSize:"11px",fontWeight:"700",cursor:"pointer"}}>Save</button>
+                          <button onClick={cancelQ} style={{background:"#f3f4f6",border:"1px solid #e5e7eb",color:"#6b7280",borderRadius:"4px",padding:"5px 7px",fontSize:"11px",cursor:"pointer"}}>✕</button>
                         </>
                       ):(
                         <>
@@ -1544,7 +1544,7 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
       </div>
       <div style={{padding:"0 24px 28px",display:"grid",gridTemplateColumns:"1fr 260px",gap:"20px",alignItems:"start"}}>
         <div>
-          <div style={{background:"#fff",marginBottom:"16px",borderRadius:"8px",border:"1px solid #e5e7eb",}}>
+          <div style={{background:"#fff",marginBottom:"16px",borderRadius:"4px",border:"1px solid #e5e7eb",}}>
             <div style={{background:"#f8fafc",padding:"11px 20px",borderBottom:"1px solid #e5e7eb",borderRadius:"8px 8px 0 0"}}>
               <span style={{fontSize:"11px",fontWeight:"700",color:"#6b7280",textTransform:"uppercase",letterSpacing:".6px"}}>Rule Details</span>
             </div>
@@ -1569,7 +1569,7 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
                       onBlur={()=>setTimeout(()=>{setInsurerOpen(false);setInsurerSearch("");},150)}
                       placeholder="Type insurer name..."/>
                     {insurerOpen&&(
-                      <div style={{position:"absolute",top:"calc(100% + 2px)",left:0,right:0,background:"#fff",border:"1px solid #d1d5db",borderRadius:"5px",boxShadow:"0 4px 12px rgba(0,0,0,0.1)",zIndex:300}}>
+                      <div style={{position:"absolute",top:"calc(100% + 2px)",left:0,right:0,background:"#fff",border:"1px solid #d1d5db",borderRadius:"4px",boxShadow:"0 4px 12px rgba(0,0,0,0.1)",zIndex:300}}>
                         {insurerSearch
                           ?<div onMouseDown={()=>{setInsurer(insurerSearch);setInsurerOpen(false);setInsurerSearch("");}} style={{padding:"10px 14px",fontSize:"13px",color:"#374151",cursor:"pointer",display:"flex",alignItems:"center",gap:"8px"}} onMouseEnter={e=>e.currentTarget.style.background="#f9fafb"} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0FA83E" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1594,7 +1594,7 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
           </div>
 
           {/* Step 2: Pricing */}
-          <div style={{background:"#fff",marginBottom:"16px",borderRadius:"8px",border:"1px solid #e5e7eb",overflow:"hidden"}}>
+          <div style={{background:"#fff",marginBottom:"16px",borderRadius:"4px",border:"1px solid #e5e7eb",overflow:"hidden"}}>
             <div style={{background:"#f8fafc",padding:"11px 20px",borderBottom:"1px solid #e5e7eb"}}>
               <span style={{fontSize:"11px",fontWeight:"700",color:"#6b7280",textTransform:"uppercase",letterSpacing:".6px"}}>Pricing Rules</span>
             </div>
@@ -1618,7 +1618,7 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
                     onBlur={()=>setTimeout(()=>{if(comboSearch&&openCombo===row.id)upd(row.id,"pno",comboSearch);setOpenCombo(null);setComboSearch("");},150)}
                     placeholder="Type or select..."/>
                   {openCombo===row.id&&(
-                    <div style={{position:"absolute",top:"calc(100% + 2px)",left:0,right:0,background:"#fff",border:"1px solid #d1d5db",borderRadius:"5px",boxShadow:"0 4px 12px rgba(0,0,0,0.1)",zIndex:200,maxHeight:"180px",overflowY:"auto"}}>
+                    <div style={{position:"absolute",top:"calc(100% + 2px)",left:0,right:0,background:"#fff",border:"1px solid #d1d5db",borderRadius:"4px",boxShadow:"0 4px 12px rgba(0,0,0,0.1)",zIndex:200,maxHeight:"180px",overflowY:"auto"}}>
                       {SYSTEM_PNL.filter(item=>!comboSearch||item.toLowerCase().includes(comboSearch.toLowerCase())).map(item=>(
                         <div key={item} onMouseDown={()=>{upd(row.id,"pno",item);setOpenCombo(null);setComboSearch("");}} style={{padding:"7px 10px",fontSize:"12px",color:"#374151",cursor:"pointer"}} onMouseEnter={e=>e.currentTarget.style.background="#f9fafb"} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>{item}</div>
                       ))}
@@ -1636,7 +1636,7 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
 
         {/* Sidebar summary */}
         <div style={{position:"sticky",top:"20px"}}>
-          <div style={{background:"#fff",marginBottom:"12px",borderTop:"1px solid #e5e7eb",borderRight:"1px solid #e5e7eb",borderBottom:"1px solid #e5e7eb",borderLeft:"4px solid #1f2937",borderRadius:"8px",overflow:"hidden"}}>
+          <div style={{background:"#fff",marginBottom:"12px",borderTop:"1px solid #e5e7eb",borderRight:"1px solid #e5e7eb",borderBottom:"1px solid #e5e7eb",borderLeft:"4px solid #1f2937",borderRadius:"4px",overflow:"hidden"}}>
             <div style={{background:"#f8fafc",padding:"11px 20px",borderBottom:"1px solid #e5e7eb"}}>
               <span style={{fontSize:"11px",fontWeight:"700",color:"#6b7280",textTransform:"uppercase",letterSpacing:".6px"}}>Rule Summary</span>
             </div>
@@ -1647,10 +1647,10 @@ function RuleForm({onBack,onSave,editingRule,isCopy}) {
             </div>
             </div>
           </div>
-          {!valid&&<div style={{background:"#fefce8",border:"1px solid #fde68a",borderRadius:"5px",padding:"10px 12px",marginBottom:"12px",fontSize:"12px",color:"#92400e"}}>Add a rule name to continue.</div>}
+          {!valid&&<div style={{background:"#fefce8",border:"1px solid #fde68a",borderRadius:"4px",padding:"10px 12px",marginBottom:"12px",fontSize:"12px",color:"#92400e"}}>Add a rule name to continue.</div>}
           <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-            <button onClick={()=>valid&&doSave()} style={{background:valid?"#0FA83E":"#e5e7eb",color:valid?"#fff":"#9ca3af",border:"none",borderRadius:"5px",padding:"11px 16px",fontSize:"13px",fontWeight:"700",cursor:valid?"pointer":"not-allowed",opacity:1}}>{isEdit?"Save Changes":"Save Rule"}</button>
-            <button onClick={onBack} style={{background:"#fff",color:"#6b7280",border:"1px solid #d1d5db",borderRadius:"5px",padding:"10px 16px",fontSize:"13px",fontWeight:"600",cursor:"pointer"}}>Cancel</button>
+            <button onClick={()=>valid&&doSave()} style={{background:valid?"#0FA83E":"#e5e7eb",color:valid?"#fff":"#9ca3af",border:"none",borderRadius:"4px",padding:"11px 16px",fontSize:"13px",fontWeight:"700",cursor:valid?"pointer":"not-allowed",opacity:1}}>{isEdit?"Save Changes":"Save Rule"}</button>
+            <button onClick={onBack} style={{background:"#fff",color:"#6b7280",border:"1px solid #d1d5db",borderRadius:"4px",padding:"10px 16px",fontSize:"13px",fontWeight:"600",cursor:"pointer"}}>Cancel</button>
           </div>
         </div>
       </div>
@@ -1718,7 +1718,7 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                 <p style={{fontSize:"14px",color:"#374151",lineHeight:"1.6",marginBottom:"20px"}}>Set up pricing rules for each insurer you work with — so every quote is consistent and profitable.</p>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"12px",marginBottom:"20px"}}>
                   {[{icon:"📋",t:"Consistent pricing",b:"Every quote uses the same logic — no more ad-hoc decisions."},{icon:"🏢",t:"Insurer compliance",b:"Rules flag or block parts that fall outside insurer agreements."},{icon:"💰",t:"Built-in margins",b:"Your profit is built into pricing. No manual markup needed."}].map(c=>(
-                    <div key={c.t} style={{padding:"14px",background:"#f9fafb",borderRadius:"6px",border:"1px solid #f3f4f6"}}>
+                    <div key={c.t} style={{padding:"14px",background:"#f9fafb",borderRadius:"4px",border:"1px solid #f3f4f6"}}>
                       <div style={{fontSize:"20px",marginBottom:"6px"}}>{c.icon}</div>
                       <div style={{fontSize:"12px",fontWeight:"700",color:"#111",marginBottom:"4px"}}>{c.t}</div>
                       <div style={{fontSize:"12px",color:"#6b7280",lineHeight:"1.5"}}>{c.b}</div>
@@ -1734,7 +1734,7 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                 <div style={{fontSize:"13px",color:"#6b7280",marginBottom:"20px"}}>Two main methods — understand these before setting your rates.</div>
                 <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
                   {[{label:"% of Dealer List",badge:"Most common",bc:"#dcfce7",bt:"#166534",desc:"You charge a percentage of the manufacturer's official list price.",eg:"OEM part lists at $400 — 100% of list → Quote: $400"},{label:"Markup on Cost",badge:"For used & reco",bc:"#fef3c7",bt:"#92400e",desc:"You charge your cost plus a percentage markup.",eg:"Used part costs $120 — 20% markup → Quote: $144"}].map(m=>(
-                    <div key={m.label} style={{border:"1px solid #e5e7eb",borderRadius:"6px",padding:"16px"}}>
+                    <div key={m.label} style={{border:"1px solid #e5e7eb",borderRadius:"4px",padding:"16px"}}>
                       <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"6px"}}>
                         <span style={{fontSize:"13px",fontWeight:"700",color:"#111"}}>{m.label}</span>
                         <span style={{fontSize:"10px",fontWeight:"700",background:m.bc,color:m.bt,borderRadius:"10px",padding:"2px 8px"}}>{m.badge}</span>
@@ -1752,12 +1752,12 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                 <div style={{fontSize:"18px",fontWeight:"800",color:"#111",marginBottom:"6px"}}>Which insurers do you work with?</div>
                 <div style={{fontSize:"13px",color:"#9ca3af",marginBottom:"12px"}}>Select all that apply. We'll pre-fill suggested margins for each.</div>
                 <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"12px"}}>
-                  <button onClick={selAll} style={{background:"none",border:"1px solid #e5e7eb",borderRadius:"5px",padding:"5px 12px",fontSize:"12px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>{sel.length===INSURERS.length?"Deselect All":"Select All"}</button>
+                  <button onClick={selAll} style={{background:"none",border:"1px solid #e5e7eb",borderRadius:"4px",padding:"5px 12px",fontSize:"12px",fontWeight:"700",color:"#374151",cursor:"pointer"}}>{sel.length===INSURERS.length?"Deselect All":"Select All"}</button>
                   <span style={{fontSize:"12px",color:"#6b7280"}}>{sel.length} of {INSURERS.length} selected</span>
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px",marginBottom:"16px"}}>
                   {INSURERS.map(name=>{const s=sel.includes(name);return(
-                    <button key={name} onClick={()=>togIns(name)} style={{display:"flex",alignItems:"center",gap:"10px",padding:"12px 14px",border:`1px solid ${s?"#1f2937":"#e5e7eb"}`,borderRadius:"6px",background:s?"#f9fafb":"#fff",cursor:"pointer",textAlign:"left"}}>
+                    <button key={name} onClick={()=>togIns(name)} style={{display:"flex",alignItems:"center",gap:"10px",padding:"12px 14px",border:`1px solid ${s?"#1f2937":"#e5e7eb"}`,borderRadius:"4px",background:s?"#f9fafb":"#fff",cursor:"pointer",textAlign:"left"}}>
                       <div style={{width:"18px",height:"18px",borderRadius:"4px",border:`2px solid ${s?"#1f2937":"#d1d5db"}`,background:s?"#1f2937":"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                         {s&&<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.5"><polyline points="20 6 9 17 4 12"/></svg>}
                       </div>
@@ -1765,7 +1765,7 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                     </button>
                   );})}
                 </div>
-                {sel.length>0&&<div style={{background:"#f0fdf4",border:"1px solid #86efac",borderRadius:"5px",padding:"10px 14px",fontSize:"12px",color:"#166534"}}><strong>{sel.length} insurer{sel.length>1?"s":""} selected.</strong> We'll pre-fill suggested margins on the next step.</div>}
+                {sel.length>0&&<div style={{background:"#f0fdf4",border:"1px solid #86efac",borderRadius:"4px",padding:"10px 14px",fontSize:"12px",color:"#166534"}}><strong>{sel.length} insurer{sel.length>1?"s":""} selected.</strong> We'll pre-fill suggested margins on the next step.</div>}
               </div>
             )}
 
@@ -1774,9 +1774,9 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                 <div style={{fontSize:"18px",fontWeight:"800",color:"#111",marginBottom:"6px"}}>Review your insurer rules</div>
                 <div style={{fontSize:"13px",color:"#9ca3af",marginBottom:"16px"}}>Expand each insurer to review and adjust the suggested rates.</div>
                 {sel.length===0
-                  ?<div style={{padding:"32px",textAlign:"center",color:"#9ca3af",fontSize:"13px",background:"#f9fafb",borderRadius:"6px"}}>No insurers selected — go back and select at least one.</div>
+                  ?<div style={{padding:"32px",textAlign:"center",color:"#9ca3af",fontSize:"13px",background:"#f9fafb",borderRadius:"4px"}}>No insurers selected — go back and select at least one.</div>
                   :sel.map(ins=>(
-                    <div key={ins} style={{marginBottom:"8px",border:`1px solid ${expanded[ins]?"#1f2937":"#e5e7eb"}`,borderRadius:"6px",overflow:"hidden"}}>
+                    <div key={ins} style={{marginBottom:"8px",border:`1px solid ${expanded[ins]?"#1f2937":"#e5e7eb"}`,borderRadius:"4px",overflow:"hidden"}}>
                       <button onClick={()=>togExp(ins)} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 16px",background:expanded[ins]?"#f9fafb":"#fff",border:"none",cursor:"pointer",textAlign:"left"}}>
                         <span style={{fontSize:"13px",fontWeight:"700",color:"#111"}}>{ins}</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" style={{transform:expanded[ins]?"rotate(180deg)":"none",transition:"transform 0.2s",flexShrink:0}}><polyline points="6 9 12 15 18 9"/></svg>
@@ -1812,7 +1812,7 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
                 <div style={{fontSize:"20px",fontWeight:"800",color:"#111",marginBottom:"6px"}}>You're all set!</div>
                 <div style={{fontSize:"14px",color:"#6b7280",marginBottom:"24px",lineHeight:"1.6"}}>Your insurer rules are saved and ready to use on quotes.</div>
                 {sel.length>0&&(
-                  <div style={{background:"#f9fafb",borderRadius:"6px",padding:"16px",textAlign:"left"}}>
+                  <div style={{background:"#f9fafb",borderRadius:"4px",padding:"16px",textAlign:"left"}}>
                     <div style={{fontSize:"11px",fontWeight:"700",color:"#9ca3af",textTransform:"uppercase",letterSpacing:"0.5px",marginBottom:"10px"}}>What was set up</div>
                     <div style={{fontSize:"13px",color:"#374151",display:"flex",gap:"8px",marginBottom:"6px"}}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0FA83E" strokeWidth="2.5" style={{flexShrink:0,marginTop:"1px"}}><polyline points="20 6 9 17 4 12"/></svg>
@@ -1831,10 +1831,10 @@ function Onboarding({onBack,onFinish,onSaveRules}) {
           <div style={{borderTop:"1px solid #f3f4f6",padding:"16px 32px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <span style={{fontSize:"12px",color:"#9ca3af"}}>Step {step} of {TOTAL}</span>
             <div style={{display:"flex",gap:"8px"}}>
-              {step>1&&step<5&&<button onClick={()=>setStep(s=>s-1)} style={{background:"#fff",color:"#374151",border:"1px solid #e5e7eb",borderRadius:"6px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Back</button>}
-              {step<4&&<button onClick={()=>setStep(s=>s+1)} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"6px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>{step===3&&sel.length===0?"Skip":"Next"} →</button>}
-              {step===4&&<button onClick={()=>setStep(5)} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"6px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Save &amp; Continue →</button>}
-              {step===5&&<button onClick={finish} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"6px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Go to Insurer Rules</button>}
+              {step>1&&step<5&&<button onClick={()=>setStep(s=>s-1)} style={{background:"#fff",color:"#374151",border:"1px solid #e5e7eb",borderRadius:"4px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Back</button>}
+              {step<4&&<button onClick={()=>setStep(s=>s+1)} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"4px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>{step===3&&sel.length===0?"Skip":"Next"} →</button>}
+              {step===4&&<button onClick={()=>setStep(5)} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"4px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Save &amp; Continue →</button>}
+              {step===5&&<button onClick={finish} style={{background:"#1f2937",color:"#fff",border:"none",borderRadius:"4px",padding:"10px 22px",fontSize:"13px",fontWeight:"700",cursor:"pointer"}}>Go to Insurer Rules</button>}
             </div>
           </div>
         </div>
